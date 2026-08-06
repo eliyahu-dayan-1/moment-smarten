@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>חכמת הרגע — גלריית עיצובי השראה לדף הבית</title>
+<meta name="description" content="ארבעה עיצובי השראה לדף הבית של מכון חכמת הרגע — עטרה גבריאלי.">
+<link rel="stylesheet" href="assets/css/base.css">
+<style>
+  body { background: var(--cream); }
+
+  .gallery-hero {
+    text-align: center;
+    padding: 100px 20px 40px;
+  }
+
+  .gallery-arch {
+    width: 130px;
+    margin: 0 auto 24px;
+    animation: gbreathe 8s ease-in-out infinite;
+  }
+
+  @keyframes gbreathe {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+  }
+
+  .gallery-hero .eyebrow {
+    font-size: 0.78rem;
+    letter-spacing: 0.35em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .gallery-hero h1 {
+    font-size: clamp(2rem, 5.5vw, 3.2rem);
+    color: var(--navy);
+  }
+
+  .gallery-hero p.sub {
+    margin-top: 16px;
+    color: #445;
+    max-width: 48ch;
+    margin-inline: auto;
+    font-size: 1.02rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    width: min(1000px, 92%);
+    margin: 60px auto 100px;
+  }
+
+  .concept-card {
+    display: block;
+    background: #fff;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid #e7dfcc;
+    text-decoration: none;
+    transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+  }
+
+  .concept-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 50px -30px rgba(16, 30, 48, 0.3);
+  }
+
+  .concept-preview {
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .concept-preview svg {
+    width: 90px;
+    opacity: 0.9;
+  }
+
+  .p1 { background: linear-gradient(160deg, #fbf7ee, #ede4cd); }
+  .p2 { background: radial-gradient(120% 100% at 50% 0%, #1a2f4d, #0b1522); }
+  .p3 { background: linear-gradient(160deg, #fbf7ee 0%, #f0e2c4 100%); }
+  .p4 { background: linear-gradient(160deg, #101e30, #1f3e75); }
+
+  .concept-body {
+    padding: 22px 24px 26px;
+  }
+
+  .concept-body .num {
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+  }
+
+  .concept-body h2 {
+    font-size: 1.4rem;
+    color: var(--navy);
+    margin: 6px 0 10px;
+  }
+
+  .concept-body p {
+    font-size: 0.92rem;
+    color: #4a5464;
+    line-height: 1.6;
+  }
+
+  .gallery-footer {
+    text-align: center;
+    padding: 40px 20px 70px;
+    font-size: 0.78rem;
+    color: #8a8578;
+  }
+
+  @media (max-width: 720px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="gallery-hero">
+  <div class="gallery-arch" aria-hidden="true">
+    <svg viewBox="0 0 200 260">
+      <defs>
+        <linearGradient id="gArch" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#2A4F8F"/>
+          <stop offset="100%" stop-color="#B6935A" stop-opacity="0.5"/>
+        </linearGradient>
+      </defs>
+      <path d="M0,260 L0,100 A100,100 0 0 1 200,100 L200,260 Z" fill="url(#gArch)"/>
+    </svg>
+  </div>
+  <p class="eyebrow">מכון חכמת הרגע</p>
+  <h1>ארבעה עיצובי השראה לדף הבית</h1>
+  <p class="sub">
+    כל כרטיסייה למטה פותחת עמוד בית שלם ועצמאי, בכיוון עיצובי אחר —
+    כדי שיהיה נוח להשוות, לבחור וגם לשלב בין הרעיונות.
+  </p>
+</header>
+
+<div class="grid">
+  <a class="concept-card" href="designs/1-shaar/index.html">
+    <div class="concept-preview p1">
+      <svg viewBox="0 0 200 260"><path d="M0,260 L0,100 A100,100 0 0 1 200,100 L200,260 Z" fill="none" stroke="#1F3E75" stroke-width="1.5"/></svg>
+    </div>
+    <div class="concept-body">
+      <p class="num">עיצוב 1</p>
+      <h2>שער</h2>
+      <p>מינימליסטי, קרם ונייבי, המון אוויר סביב הקשת — תחושה חגיגית, רגועה ואלמותית.</p>
+    </div>
+  </a>
+
+  <a class="concept-card" href="designs/2-rega-kachol/index.html">
+    <div class="concept-preview p2">
+      <svg viewBox="0 0 200 260"><path d="M0,260 L0,100 A100,100 0 0 1 200,100 L200,260 Z" fill="#C9A86A" opacity="0.6"/></svg>
+    </div>
+    <div class="concept-body">
+      <p class="num">עיצוב 2</p>
+      <h2>רגע כחול</h2>
+      <p>הירו נייבי עמוק ודרמטי, קשת זוהרת ונושמת, טיפוגרפיה זהובה. תחושה פרימיום.</p>
+    </div>
+  </a>
+
+  <a class="concept-card" href="designs/3-or-bahir/index.html">
+    <div class="concept-preview p3">
+      <svg viewBox="0 0 200 260"><path d="M0,260 L0,100 A100,100 0 0 1 200,100 L200,260 Z" fill="#C9A86A" opacity="0.7"/></svg>
+    </div>
+    <div class="concept-body">
+      <p class="num">עיצוב 3</p>
+      <h2>אור בהיר</h2>
+      <p>פלטה חמה של קרם וזהב עם נייבי כדגש, פרלקסה עדינה בגלילה. תחושה נגישה וחמה.</p>
+    </div>
+  </a>
+
+  <a class="concept-card" href="designs/4-tnua/index.html">
+    <div class="concept-preview p4">
+      <svg viewBox="0 0 200 260"><path d="M0,260 L0,100 A100,100 0 0 1 200,100 L200,260 Z" fill="#fbf7ee" opacity="0.85"/></svg>
+    </div>
+    <div class="concept-body">
+      <p class="num">עיצוב 4</p>
+      <h2>תנועה</h2>
+      <p>קשתות אבסטרקטיות מרובדות שנושמות, כותרת מתחלפת ופרלקסת עכבר. הכי הרבה תנועה.</p>
+    </div>
+  </a>
+</div>
+
+<footer class="gallery-footer">
+  <p>© חכמת הרגע — עטרה גבריאלי</p>
+</footer>
+
+</body>
+</html>
