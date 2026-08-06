@@ -24,7 +24,7 @@
   }
 
   // פרלקסת עכבר עדינה על שדה הקשתות
-  var hero = document.getElementById("heroLayer");
+  var hero = document.querySelector("[data-hero-layer]");
   var layers = document.querySelectorAll(".arch-layer");
 
   if (hero && layers.length && !prefersReduced && window.matchMedia("(pointer: fine)").matches) {

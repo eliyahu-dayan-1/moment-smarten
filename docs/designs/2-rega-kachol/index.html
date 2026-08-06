@@ -19,22 +19,43 @@
   <a href="../4-tnua/index.html">4</a>
 </nav>
 
-<header class="hero">
-  <div class="hero-glow" aria-hidden="true"></div>
-  <div class="hero-arch" aria-hidden="true">
-    <svg viewBox="0 0 200 260" preserveAspectRatio="xMidYMax meet">
-      <defs>
-        <linearGradient id="archGrad2" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#C9A86A"/>
-          <stop offset="100%" stop-color="#C9A86A" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-      <path d="M0,260 L0,100 A100,100 0 0 1 200,100 L200,260 Z" fill="url(#archGrad2)" opacity="0.5"/>
-    </svg>
+<header class="site-header">
+  <div class="container site-header-inner">
+    <a class="brand" href="#top">
+      <span class="brand-arch" aria-hidden="true">
+        <svg viewBox="0 0 200 260"><path d="M0,260 L0,100 A100,100 0 0 1 200,100 L200,260 Z" fill="currentColor"/></svg>
+      </span>
+      <span class="brand-text">חַכְמַת הָרֶגַע</span>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="siteNav" aria-label="פתיחת תפריט">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="siteNav" aria-label="ניווט ראשי">
+      <a href="#about">על עטרה</a>
+      <a href="#scent">חכמת הרגע</a>
+      <a href="#programs">תוכניות</a>
+      <a href="#book">הספר</a>
+      <a href="#contact">יצירת קשר</a>
+    </nav>
   </div>
+</header>
+
+<header class="hero" id="top">
+  <div class="hero-glow" aria-hidden="true"></div>
 
   <div class="hero-inner">
-    <div class="hero-photo-wrap">
+    <div class="hero-visual">
+      <div class="hero-arch-glow" aria-hidden="true">
+        <svg viewBox="0 0 200 260" preserveAspectRatio="xMidYMax meet">
+          <defs>
+            <linearGradient id="archGrad2" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#C9A86A"/>
+              <stop offset="100%" stop-color="#C9A86A" stop-opacity="0.15"/>
+            </linearGradient>
+          </defs>
+          <path d="M0,260 L0,100 A100,100 0 0 1 200,100 L200,260 Z" fill="url(#archGrad2)"/>
+        </svg>
+      </div>
       <img src="../../assets/img/atara-navy-profile-smile.jpg" alt="עטרה גבריאלי" class="hero-photo">
     </div>
     <div class="hero-copy">
@@ -73,7 +94,7 @@
   </div>
 </section>
 
-<section class="scent" data-reveal>
+<section id="scent" class="scent" data-reveal>
   <div class="scent-arch" aria-hidden="true">
     <svg viewBox="0 0 200 260" preserveAspectRatio="xMidYMax meet">
       <path d="M0,260 L0,100 A100,100 0 0 1 200,100 L200,260 Z" fill="none" stroke="#C9A86A" stroke-width="1.5"/>
@@ -89,7 +110,7 @@
   <p class="pull-quote">"הרגע הוא ריח גן עדן. הוא אינו גן עדן — אבל הוא השובל שלו."</p>
 </section>
 
-<section class="programs" data-reveal>
+<section id="programs" class="programs" data-reveal>
   <h2>דרכים להיפגש</h2>
   <!-- תוכן לדוגמה: יש לעדכן עם פרטים מדויקים (תאריכים / מחירים / קישורי הרשמה) -->
   <div class="cards">
@@ -130,10 +151,34 @@
 </section>
 
 <footer class="site-footer">
-  <p>© חכמת הרגע — עטרה גבריאלי</p>
-  <p class="footer-note">עמוד בית זה הוא אחד מתוך ארבעה עיצובי השראה — <a href="../../index.html">לצפייה בכולם</a></p>
+  <div class="container footer-top">
+    <div class="footer-brand">
+      <span class="brand-arch" aria-hidden="true">
+        <svg viewBox="0 0 200 260"><path d="M0,260 L0,100 A100,100 0 0 1 200,100 L200,260 Z" fill="currentColor"/></svg>
+      </span>
+      <p class="footer-wordmark">חכמת הרגע</p>
+      <p class="footer-tagline">עטרה גבריאלי</p>
+    </div>
+    <nav class="footer-nav" aria-label="ניווט בפוטר">
+      <p class="footer-col-title">ניווט</p>
+      <a href="#about">על עטרה</a>
+      <a href="#scent">חכמת הרגע</a>
+      <a href="#programs">תוכניות</a>
+      <a href="#book">הספר</a>
+    </nav>
+    <div class="footer-contact">
+      <p class="footer-col-title">רגע של חיבור</p>
+      <a href="mailto:atara30@gmail.com">atara30@gmail.com</a>
+      <!-- מקום לעדכון: טלפון / וואטסאפ / קישורי רשת חברתית אמיתיים -->
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© חכמת הרגע — עטרה גבריאלי</p>
+    <p class="footer-note">עמוד בית זה הוא אחד מתוך ארבעה עיצובי השראה — <a href="../../index.html">לצפייה בכולם</a></p>
+  </div>
 </footer>
 
 <script src="../../assets/js/reveal.js"></script>
+<script src="../../assets/js/nav.js"></script>
 </body>
 </html>
