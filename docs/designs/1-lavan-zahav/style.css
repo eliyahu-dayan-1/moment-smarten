@@ -155,9 +155,30 @@ body {
   margin-inline: auto;
 }
 
-.about-media img {
-  border-radius: 4px 4px 120px 4px;
-  box-shadow: 0 30px 60px -30px rgba(16, 30, 48, 0.35);
+.about-media {
+  position: relative;
+  isolation: isolate;
+}
+
+.about-media-glow {
+  position: absolute;
+  inset: -10% -14%;
+  z-index: -1;
+  background: radial-gradient(60% 55% at 50% 38%, rgba(182, 147, 90, 0.4), transparent 72%);
+  filter: blur(10px);
+  animation: breathe 8s ease-in-out infinite;
+}
+
+.about-portrait {
+  border-radius: 50% 50% 6px 6px / 30% 30% 6px 6px;
+  box-shadow: 0 30px 60px -26px rgba(16, 30, 48, 0.4);
+  transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
+  will-change: transform;
+}
+
+.about-media:hover .about-portrait {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 40px 70px -26px rgba(16, 30, 48, 0.45);
 }
 
 .about-text h2,
