@@ -46,12 +46,16 @@ body {
 
 /* ===== הירו ===== */
 .hero {
+  position: relative;
+  overflow: hidden;
   padding-top: 120px;
   padding-bottom: 60px;
   background: linear-gradient(180deg, var(--cream) 0%, var(--sand) 100%);
 }
 
 .hero-inner {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
@@ -65,20 +69,21 @@ body {
 .eyebrow {
   font-size: 0.78rem;
   letter-spacing: 0.35em;
-  color: var(--olive);
+  color: var(--lime);
   text-transform: uppercase;
   margin-bottom: 8px;
 }
 
 .wordmark {
   font-size: clamp(2.2rem, 6vw, 3.8rem);
-  color: var(--olive-deep);
+  color: var(--sand);
   letter-spacing: 0.01em;
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
 }
 
 .byline {
   font-size: 1rem;
-  color: var(--olive);
+  color: var(--lime);
   margin-top: 10px;
   letter-spacing: 0.06em;
 }
@@ -87,7 +92,7 @@ body {
   margin-top: 22px;
   font-family: var(--font-display);
   font-size: clamp(1.3rem, 3vw, 1.9rem);
-  color: var(--ink);
+  color: var(--sand);
   max-width: 16ch;
   line-height: 1.4;
 }
@@ -104,7 +109,8 @@ body {
 .hero-sub {
   margin-top: 18px;
   max-width: 40ch;
-  color: #4a5540;
+  color: var(--sand);
+  opacity: 0.85;
   font-size: 1rem;
 }
 
@@ -148,6 +154,16 @@ body {
   color: var(--cream);
 }
 
+.hero .btn-outline {
+  color: var(--sand);
+  border-color: var(--sand);
+}
+
+.hero .btn-outline:hover {
+  background: var(--sand);
+  color: var(--olive-deep);
+}
+
 .btn-lime {
   background: var(--lime);
   color: var(--olive-deep);
@@ -173,7 +189,27 @@ body {
 }
 
 /* קולאז' — 9 תאים בהשראת גריד ההירו של imameamenet */
+.gaze-window {
+  z-index: 3;
+}
+
+/* פיצוי על ה-padding של ה-hero, כדי שתמונת הרקע תמלא אותו קצה-לקצה */
+.hero-bg-photo {
+  margin: -120px 0 -60px;
+}
+
+.gaze-window-pulse {
+  animation: gaze-pulse 6s ease-in-out infinite;
+}
+
+@keyframes gaze-pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.95; }
+}
+
 .hero-collage {
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
@@ -225,8 +261,8 @@ body {
   gap: 6px;
   margin: 46px auto 0;
   font-size: 0.8rem;
-  color: var(--olive-deep);
-  opacity: 0.6;
+  color: var(--sand);
+  opacity: 0.75;
   width: fit-content;
 }
 

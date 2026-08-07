@@ -39,9 +39,55 @@ body {
   background: linear-gradient(160deg, #fbf7ee 0%, #f0e9d8 55%, #e9e0cb 100%);
 }
 
+/* כדור אור פועם — הנקודה שאליה עטרה מביטה */
+.gaze-orb {
+  position: absolute;
+  top: 10%;
+  inset-inline-end: 8%;
+  z-index: 1;
+  width: min(150px, 24vw);
+  aspect-ratio: 1;
+  pointer-events: none;
+}
+
+.gaze-orb-core {
+  position: absolute;
+  inset: 22%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 40% 35%, #f6e6c4, #c9a86a 55%, transparent 78%);
+  filter: blur(1px) drop-shadow(0 0 26px rgba(201, 168, 106, 0.65));
+  animation: gaze-breathe 5s ease-in-out infinite;
+}
+
+.gaze-orb-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(201, 168, 106, 0.55);
+  animation: gaze-orb-spin 16s linear infinite;
+}
+
+.gaze-orb-ring::before,
+.gaze-orb-ring::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--gold-light);
+}
+
+.gaze-orb-ring::before { top: -2px; inset-inline-start: 50%; }
+.gaze-orb-ring::after { bottom: -2px; inset-inline-end: 12%; }
+
+@keyframes gaze-orb-spin {
+  to { transform: rotate(360deg); }
+}
+
 .arch-field {
   position: absolute;
   inset: 0;
+  z-index: 1;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -94,33 +140,23 @@ body {
   padding: 30px 20px 60px;
 }
 
-/* תצלום עטרה מלפנים, על רקע שדה הקשתות הנושמות — "מאחוריה קשת" */
-.hero-photo {
-  width: min(230px, 54vw);
-  aspect-ratio: 3 / 4;
-  object-fit: cover;
-  object-position: top center;
-  border-radius: 10px;
-  margin: 0 auto 26px;
-  box-shadow: 0 26px 54px -18px rgba(16, 30, 48, 0.45);
-}
-
 .eyebrow {
   font-size: 0.78rem;
   letter-spacing: 0.35em;
-  color: var(--gold);
+  color: var(--gold-light);
   text-transform: uppercase;
   margin-bottom: 8px;
 }
 
 .wordmark {
   font-size: clamp(2.5rem, 7.5vw, 4.6rem);
-  color: var(--navy);
+  color: var(--cream);
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.35);
 }
 
 .byline {
   font-size: 1rem;
-  color: var(--blue-royal);
+  color: var(--cream-2);
   margin-top: 10px;
   letter-spacing: 0.08em;
 }
@@ -133,7 +169,7 @@ body {
   justify-content: center;
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 2.8vw, 1.8rem);
-  color: var(--navy);
+  color: var(--cream);
   transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
@@ -145,8 +181,8 @@ body {
 .scroll-cue {
   margin-top: 30px;
   font-size: 0.8rem;
-  color: var(--navy);
-  opacity: 0.6;
+  color: var(--cream);
+  opacity: 0.75;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
