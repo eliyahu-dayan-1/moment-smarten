@@ -160,10 +160,11 @@ body {
   border-radius: 120px 4px 4px 4px;
 }
 
-.about-media img {
+.about-photo-frame {
   border-radius: 120px 4px 4px 4px;
   box-shadow: 0 30px 60px -30px rgba(58, 15, 31, 0.35);
   display: block;
+  aspect-ratio: 4 / 5;
 }
 
 .about-media-shine {

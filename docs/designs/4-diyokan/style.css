@@ -184,16 +184,52 @@ body {
   margin-inline: auto;
 }
 
-.about-media img {
+/* "הד" תנועה — שלושה עותקים חופפים של אותה תמונה, מתכנסים כשהם נכנסים למסך */
+.about-echo {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+}
+
+.echo-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
   border-radius: 4px 4px 120px 4px;
-  box-shadow: 0 30px 60px -30px rgba(16, 30, 48, 0.35);
+  transition: transform 0.9s var(--ease), opacity 0.9s var(--ease), filter 0.9s var(--ease);
+}
+
+.echo-1 {
+  opacity: 0.32;
+  filter: grayscale(1) brightness(1.15);
+  transform: translate(-26px, 16px) rotate(-4deg) scale(1.02);
+}
+
+.echo-2 {
+  opacity: 0.5;
+  filter: sepia(0.35) hue-rotate(170deg) saturate(1.4) brightness(0.95);
+  transform: translate(18px, -14px) rotate(3deg) scale(1.02);
+}
+
+.echo-main {
+  position: relative;
+  box-shadow: 0 30px 60px -30px rgba(16, 30, 48, 0.4);
   transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
 }
 
-.about-media:hover img {
+.about.is-visible .echo-1 { transform: translate(-10px, 6px) rotate(-1.5deg); }
+.about.is-visible .echo-2 { transform: translate(7px, -5px) rotate(1deg); }
+
+.about-media:hover .echo-main {
   transform: translateY(-6px) scale(1.015);
   box-shadow: 0 40px 70px -26px rgba(16, 30, 48, 0.42);
 }
+
+.about-media:hover .echo-1 { transform: translate(-16px, 10px) rotate(-2.5deg); }
+.about-media:hover .echo-2 { transform: translate(12px, -8px) rotate(1.8deg); }
 
 .about-text h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); color: var(--navy); margin-bottom: 20px; }
 .about-text p { margin-bottom: 16px; color: #2c3646; }

@@ -193,9 +193,10 @@ body {
   animation: glow-breathe 7s ease-in-out infinite;
 }
 
-.about-media img {
+.about-photo-frame {
   border-radius: 4px 4px 120px 4px;
   box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.6);
+  aspect-ratio: 4 / 5;
 }
 
 .about-text h2,

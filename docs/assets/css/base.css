@@ -100,9 +100,11 @@ p {
   position: fixed;
   bottom: 16px;
   inset-inline-end: 16px;
+  inset-inline-start: 16px;
   z-index: 200;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   font-size: 0.76rem;
   padding: 7px 14px;
@@ -112,6 +114,9 @@ p {
   backdrop-filter: blur(6px);
   box-shadow: 0 2px 14px rgba(16, 30, 48, 0.18);
   transition: transform 0.4s var(--ease);
+  max-width: fit-content;
+  margin-inline: auto;
+  overflow-x: auto;
 }
 
 .concept-nav:hover {
@@ -340,6 +345,33 @@ p {
     padding-bottom: 100px;
   }
 }
+
+/* דואוטון משותף — img בגווני אפור + שכבת צבע ב-mix-blend-mode, לכל [class*="duotone-"] */
+[class*="duotone-"] {
+  position: relative;
+  overflow: hidden;
+}
+
+[class*="duotone-"] img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) contrast(1.08) brightness(1.04);
+}
+
+[class*="duotone-"]::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(155deg, var(--duotone-a), var(--duotone-b));
+  mix-blend-mode: color;
+  pointer-events: none;
+}
+
+.duotone-gold { --duotone-a: #16283f; --duotone-b: #c9a86a; }
+.duotone-warm { --duotone-a: #3a0f1f; --duotone-b: #d9b478; }
+.duotone-olive { --duotone-a: #3f4a2e; --duotone-b: #f3ecdd; }
+.duotone-journey { --duotone-a: #101e30; --duotone-b: #b6935a; }
 
 /* הטיה עדינה בעכבר — משותף לכל [data-tilt] */
 [data-tilt] {

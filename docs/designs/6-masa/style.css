@@ -180,9 +180,10 @@ body {
   align-items: center;
 }
 
-.about-media img {
+.about-photo-frame {
   border-radius: 4px 4px 120px 4px;
   box-shadow: 0 30px 60px -30px rgba(16, 30, 48, 0.35);
+  aspect-ratio: 4 / 5;
 }
 
 .about-text p {
