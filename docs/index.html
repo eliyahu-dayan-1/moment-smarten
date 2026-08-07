@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>חכמת הרגע — גלריית עיצובי השראה לדף הבית</title>
-<meta name="description" content="ארבעה עיצובי השראה לדף הבית של מכון חכמת הרגע — עטרה גבריאלי.">
+<meta name="description" content="שישה עיצובי השראה לדף הבית של מכון חכמת הרגע — עטרה גבריאלי.">
 <link rel="stylesheet" href="assets/css/base.css">
 <style>
   body { background: var(--cream); }
@@ -48,9 +48,9 @@
 
   .grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    width: min(1000px, 92%);
+    width: min(1200px, 92%);
     margin: 60px auto 100px;
   }
 
@@ -87,6 +87,8 @@
   .p2 { background: radial-gradient(120% 100% at 50% 0%, #1a2f4d, #0b1522); }
   .p3 { background: linear-gradient(160deg, #fbf7ee 0%, #f0e2c4 100%); }
   .p4 { background: linear-gradient(160deg, #101e30, #1f3e75); }
+  .p5 { background: linear-gradient(160deg, #f0ece0, #cfd9c8); }
+  .p6 { background: linear-gradient(160deg, #1f3e75, #b6935a); }
 
   .concept-body {
     padding: 22px 24px 26px;
@@ -118,6 +120,10 @@
     color: #8a8578;
   }
 
+  @media (max-width: 960px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
   @media (max-width: 720px) {
     .grid { grid-template-columns: 1fr; }
   }
@@ -138,7 +144,7 @@
     </svg>
   </div>
   <p class="eyebrow">מכון חכמת הרגע</p>
-  <h1>ארבעה עיצובי השראה לדף הבית</h1>
+  <h1>שישה עיצובי השראה לדף הבית</h1>
   <p class="sub">
     כל כרטיסייה למטה פותחת עמוד בית שלם ועצמאי, בכיוון עיצובי אחר —
     כדי שיהיה נוח להשוות, לבחור וגם לשלב בין הרעיונות.
@@ -146,7 +152,7 @@
 </header>
 
 <div class="grid">
-  <a class="concept-card" href="designs/1-shaar/index.html">
+  <a class="concept-card" href="designs/1-lavan-zahav/index.html">
     <div class="concept-preview p1">
       <svg viewBox="0 0 200 260"><path d="M0,260 L0,100 A100,100 0 0 1 200,100 L200,260 Z" fill="none" stroke="#1F3E75" stroke-width="1.5"/></svg>
     </div>
@@ -168,7 +174,7 @@
     </div>
   </a>
 
-  <a class="concept-card" href="designs/3-or-bahir/index.html">
+  <a class="concept-card" href="designs/3-pesifas/index.html">
     <div class="concept-preview p3">
       <svg viewBox="0 0 200 260"><path d="M0,260 L0,100 A100,100 0 0 1 200,100 L200,260 Z" fill="#C9A86A" opacity="0.7"/></svg>
     </div>
@@ -179,7 +185,7 @@
     </div>
   </a>
 
-  <a class="concept-card" href="designs/4-tnua/index.html">
+  <a class="concept-card" href="designs/4-diyokan/index.html">
     <div class="concept-preview p4">
       <svg viewBox="0 0 200 260"><path d="M0,260 L0,100 A100,100 0 0 1 200,100 L200,260 Z" fill="#fbf7ee" opacity="0.85"/></svg>
     </div>
@@ -187,6 +193,28 @@
       <p class="num">עיצוב 4</p>
       <h2>תנועה</h2>
       <p>קשתות אבסטרקטיות מרובדות שנושמות, כותרת מתחלפת ופרלקסת עכבר. הכי הרבה תנועה.</p>
+    </div>
+  </a>
+
+  <a class="concept-card" href="designs/5-tzmicha/index.html">
+    <div class="concept-preview p5">
+      <svg viewBox="0 0 200 260"><path d="M0,260 L0,100 A100,100 0 0 1 200,100 L200,260 Z" fill="none" stroke="#1F3E75" stroke-width="1.5"/></svg>
+    </div>
+    <div class="concept-body">
+      <p class="num">עיצוב 5</p>
+      <h2>צמיחה</h2>
+      <p>עיצוב חמישי בגלריה — מוזמנים להיכנס ולהתרשם.</p>
+    </div>
+  </a>
+
+  <a class="concept-card" href="designs/6-masa/index.html">
+    <div class="concept-preview p6">
+      <svg viewBox="0 0 200 260"><path d="M0,260 L0,100 A100,100 0 0 1 200,100 L200,260 Z" fill="#fbf7ee" opacity="0.7"/></svg>
+    </div>
+    <div class="concept-body">
+      <p class="num">עיצוב 6</p>
+      <h2>מסע</h2>
+      <p>עיצוב שישי בגלריה — מוזמנים להיכנס ולהתרשם.</p>
     </div>
   </a>
 </div>
