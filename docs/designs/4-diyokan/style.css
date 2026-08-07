@@ -34,7 +34,7 @@ body {
   min-height: 100svh;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: hidden;
   background: linear-gradient(160deg, #fbf7ee 0%, #f0e9d8 55%, #e9e0cb 100%);
 }
@@ -136,8 +136,8 @@ body {
 .hero-inner {
   position: relative;
   z-index: 2;
-  text-align: center;
-  padding: 30px 20px 60px;
+  text-align: start;
+  padding: 30px 8% 60px;
 }
 
 .eyebrow {
@@ -166,7 +166,7 @@ body {
   height: 2.4em;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 2.8vw, 1.8rem);
   color: var(--cream);
@@ -185,7 +185,7 @@ body {
   opacity: 0.75;
   display: inline-flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 6px;
 }
 

@@ -44,22 +44,19 @@ body {
   overflow: hidden;
   min-height: 92svh;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 20px 60px;
   background: linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%);
 }
 
-.hero > *:not(.hero-bg-photo):not(.falling-letters):not(.gaze-window) {
+.hero-content {
   position: relative;
   z-index: 2;
-}
-
-/* פיצוי על ה-padding של ה-hero, כדי שתמונת הרקע תמלא אותו קצה-לקצה */
-.hero-bg-photo {
-  margin: -40px -20px -60px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: start;
+  width: 100%;
+  padding: 40px 8% 60px;
 }
 
 .gaze-window-glow svg {
@@ -110,7 +107,7 @@ body {
   opacity: 0.75;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   gap: 6px;
 }
 

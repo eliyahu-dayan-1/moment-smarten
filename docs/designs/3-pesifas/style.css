@@ -38,20 +38,13 @@ body {
   min-height: 100svh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 40px 6% 60px;
-  gap: 40px;
-}
-
-/* פיצוי על ה-padding של ה-hero, כדי שתמונת הרקע תמלא אותו קצה-לקצה */
-.hero-bg-photo {
-  margin: -40px -6% -60px;
 }
 
 .hero-text {
   position: relative;
   z-index: 1;
   text-align: start;
+  padding: 40px 6% 60px;
 }
 
 .eyebrow {
