@@ -179,6 +179,20 @@ body {
   margin-inline: auto;
 }
 
+.about-media {
+  position: relative;
+  isolation: isolate;
+}
+
+.about-media-glow {
+  position: absolute;
+  inset: -12% -16%;
+  z-index: -1;
+  background: radial-gradient(60% 55% at 55% 40%, rgba(201, 168, 106, 0.45), transparent 72%);
+  filter: blur(14px);
+  animation: glow-breathe 7s ease-in-out infinite;
+}
+
 .about-media img {
   border-radius: 4px 4px 120px 4px;
   box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.6);

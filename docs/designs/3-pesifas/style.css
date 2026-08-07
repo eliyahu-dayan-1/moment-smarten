@@ -154,9 +154,32 @@ body {
   margin-inline: auto;
 }
 
+.about-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 120px 4px 4px 4px;
+}
+
 .about-media img {
   border-radius: 120px 4px 4px 4px;
   box-shadow: 0 30px 60px -30px rgba(58, 15, 31, 0.35);
+  display: block;
+}
+
+.about-media-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.55) 50%, transparent 60%);
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+.about-media:hover .about-media-shine {
+  animation: shine-sweep 1.1s var(--ease);
+}
+
+@keyframes shine-sweep {
+  to { transform: translateX(120%); }
 }
 
 .about-text h2,
