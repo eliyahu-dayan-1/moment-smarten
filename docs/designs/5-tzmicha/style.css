@@ -210,18 +210,19 @@ body {
 .hero-collage {
   position: relative;
   z-index: 1;
+  align-self: end;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  gap: 12px;
-  padding: 22px;
-  margin: -22px;
-  border-radius: 28px;
+  gap: 10px;
+  padding: 18px;
+  border-radius: 24px;
   background: rgba(16, 22, 12, 0.38);
   backdrop-filter: blur(6px);
   aspect-ratio: 1;
-  width: min(420px, 100%);
+  width: min(240px, 100%);
   margin-inline: auto;
+  margin-bottom: 0;
 }
 
 .collage-cell {
