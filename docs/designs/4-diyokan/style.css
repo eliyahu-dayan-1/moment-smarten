@@ -90,7 +90,8 @@ body {
   z-index: 1;
   display: flex;
   align-items: flex-end;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-inline-end: 4%;
   pointer-events: none;
 }
 

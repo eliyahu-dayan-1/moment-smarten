@@ -12,7 +12,7 @@
     var span = document.createElement("span");
     span.textContent = letters[Math.floor(Math.random() * letters.length)];
     span.setAttribute("aria-hidden", "true");
-    var left = Math.random() * 100;
+    var left = 42 + Math.random() * 56;
     var size = 14 + Math.random() * 26;
     var speed = 0.15 + Math.random() * 0.5;
     var startOffset = Math.random() * 1200;
