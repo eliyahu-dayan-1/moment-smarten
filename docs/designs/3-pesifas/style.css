@@ -38,6 +38,7 @@ body {
   min-height: 100svh;
   display: flex;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .hero-text {
@@ -133,15 +134,12 @@ body {
 
 .about-media {
   position: relative;
-  overflow: hidden;
-  border-radius: 120px 4px 4px 4px;
 }
 
 .about-photo-frame {
-  border-radius: 120px 4px 4px 4px;
-  box-shadow: 0 30px 60px -30px rgba(58, 15, 31, 0.35);
   display: block;
-  aspect-ratio: 4 / 5;
+  width: min(380px, 100%);
+  margin-inline: auto;
 }
 
 .about-media-shine {

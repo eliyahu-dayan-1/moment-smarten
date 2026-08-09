@@ -58,6 +58,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -68,6 +69,7 @@ body {
   direction: rtl;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 img {
@@ -373,6 +375,16 @@ p {
 .duotone-olive { --duotone-a: #3f4a2e; --duotone-b: #f3ecdd; }
 .duotone-journey { --duotone-a: #101e30; --duotone-b: #b6935a; }
 
+/* מסכת שער — חותכת את תמונת עטרה לצורת הקשת של הלוגו, כדי שתשב ישירות על רקע הדף בלי מלבן לבן מסביב */
+.arch-photo {
+  -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NTAgODA5Ij48cGF0aCBkPSJNMCw4MDkgTDAsMjc1IEEyNzUsMjc1IDAgMCAxIDU1MCwyNzUgTDU1MCw4MDkgWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==");
+  mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NTAgODA5Ij48cGF0aCBkPSJNMCw4MDkgTDAsMjc1IEEyNzUsMjc1IDAgMCAxIDU1MCwyNzUgTDU1MCw4MDkgWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==");
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
 /* תמונת רקע משותפת להירו — עטרה נשענת על השולחן, ברקע כל עיצוב */
 .hero-bg-photo {
   position: absolute;
@@ -386,6 +398,18 @@ p {
   height: 100%;
   object-fit: cover;
   object-position: 14% 40%;
+  transform: scaleX(-1);
+}
+
+@media (max-width: 640px) {
+  .hero-bg-photo img {
+    object-position: 20% 8%;
+  }
+
+  .hero-bg-photo .hero-bg-overlay {
+    background:
+      linear-gradient(180deg, rgba(9, 17, 28, 0.12) 0%, rgba(9, 17, 28, 0.28) 32%, rgba(9, 17, 28, 0.74) 55%, rgba(9, 17, 28, 0.9) 100%);
+  }
 }
 
 /* "החלון" שאליו עטרה מביטה — קשת זוהרת, ממוקמת בכיוון המבט שלה (למעלה-ימינה) */
@@ -429,7 +453,7 @@ p {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(9, 17, 28, 0.2) 0%, rgba(9, 17, 28, 0.62) 46%, rgba(9, 17, 28, 0.82) 100%),
+    linear-gradient(90deg, rgba(9, 17, 28, 0.82) 0%, rgba(9, 17, 28, 0.62) 54%, rgba(9, 17, 28, 0.2) 100%),
     linear-gradient(0deg, rgba(9, 17, 28, 0.55) 0%, rgba(9, 17, 28, 0.05) 30%, rgba(9, 17, 28, 0.05) 70%, rgba(9, 17, 28, 0.4) 100%);
 }
 

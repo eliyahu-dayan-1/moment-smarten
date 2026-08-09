@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "docs-static",
-      "runtimeExecutable": "ruby",
-      "runtimeArgs": ["-run", "-e", "httpd", "--", "/tmp/hr-docs-real", "-p", "4173"],
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd /Users/eliyahudayan/Desktop/projects/moment_smarten/docs && exec python3 -m http.server 4173"],
       "port": 4173
     }
   ]

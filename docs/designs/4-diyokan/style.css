@@ -34,7 +34,7 @@ body {
   min-height: 100svh;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
   overflow: hidden;
   background: linear-gradient(160deg, #fbf7ee 0%, #f0e9d8 55%, #e9e0cb 100%);
 }
@@ -90,8 +90,8 @@ body {
   z-index: 1;
   display: flex;
   align-items: flex-end;
-  justify-content: flex-end;
-  padding-inline-end: 4%;
+  justify-content: flex-start;
+  padding-inline-start: 4%;
   pointer-events: none;
 }
 
@@ -225,7 +225,7 @@ body {
 .about-echo {
   position: relative;
   width: 100%;
-  aspect-ratio: 4 / 5;
+  aspect-ratio: 550 / 809;
 }
 
 .echo-layer {
@@ -235,7 +235,6 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  border-radius: 4px 4px 120px 4px;
   transition: transform 0.9s var(--ease), opacity 0.9s var(--ease), filter 0.9s var(--ease);
 }
 
@@ -253,8 +252,7 @@ body {
 
 .echo-main {
   position: relative;
-  box-shadow: 0 30px 60px -30px rgba(16, 30, 48, 0.4);
-  transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
+  transition: transform 0.6s var(--ease);
 }
 
 .about.is-visible .echo-1 { transform: translate(-10px, 6px) rotate(-1.5deg); }
@@ -262,7 +260,6 @@ body {
 
 .about-media:hover .echo-main {
   transform: translateY(-6px) scale(1.015);
-  box-shadow: 0 40px 70px -26px rgba(16, 30, 48, 0.42);
 }
 
 .about-media:hover .echo-1 { transform: translate(-16px, 10px) rotate(-2.5deg); }
