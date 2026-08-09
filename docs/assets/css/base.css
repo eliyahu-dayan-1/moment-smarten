@@ -377,8 +377,8 @@ p {
 
 /* מסכת שער — חותכת את תמונת עטרה לצורת הקשת של הלוגו, כדי שתשב ישירות על רקע הדף בלי מלבן לבן מסביב */
 .arch-photo {
-  -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NTAgODA5Ij48cGF0aCBkPSJNMCw4MDkgTDAsMjc1IEEyNzUsMjc1IDAgMCAxIDU1MCwyNzUgTDU1MCw4MDkgWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==");
-  mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NTAgODA5Ij48cGF0aCBkPSJNMCw4MDkgTDAsMjc1IEEyNzUsMjc1IDAgMCAxIDU1MCwyNzUgTDU1MCw4MDkgWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==");
+  -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NTAgNzQ1Ij48cGF0aCBkPSJNMCw3NDUgTDAsMjc1IEEyNzUsMjc1IDAgMCAxIDU1MCwyNzUgTDU1MCw3NDUgWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==");
+  mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NTAgNzQ1Ij48cGF0aCBkPSJNMCw3NDUgTDAsMjc1IEEyNzUsMjc1IDAgMCAxIDU1MCwyNzUgTDU1MCw3NDUgWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==");
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
   -webkit-mask-repeat: no-repeat;
