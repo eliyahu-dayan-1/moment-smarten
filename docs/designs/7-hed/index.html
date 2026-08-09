@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>חכמת הרגע — עטרה גבריאלי | עיצוב 7: הד</title>
-<meta name="description" content="חכמת הרגע — מכון בהובלת עטרה גבריאלי. עיצוב השראה 7: הד — מיזוג ששת העיצובים הקודמים לכדי שפה אחת.">
+<meta name="description" content="חכמת הרגע — מכון בהובלת עטרה גבריאלי. עיצוב השראה 7: הד — מבנה תוכן שמתחיל מהצעת הערך, לא מהביוגרפיה.">
 <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../assets/css/base.css">
 <link rel="stylesheet" href="style.css">
@@ -35,10 +35,10 @@
       <span></span><span></span><span></span>
     </button>
     <nav class="site-nav" id="siteNav" aria-label="ניווט ראשי">
+      <a href="#programs">דרכים להיפגש</a>
       <a href="#about">על עטרה</a>
       <a href="#scent">חכמת הרגע</a>
-      <a href="#programs">תוכניות</a>
-      <a href="#book">הספר</a>
+      <a href="#faq">שאלות</a>
       <a href="#contact">יצירת קשר</a>
     </nav>
   </div>
@@ -54,7 +54,7 @@
     <h1 class="wordmark">חַכְמַת הָרֶגַע</h1>
     <p class="byline">עטרה גבריאלי</p>
     <p class="tagline">הכול מהדהד לרגע אחד.</p>
-    <a class="scroll-cue" href="#about">לגלות עוד<span aria-hidden="true">↓</span></a>
+    <a class="scroll-cue" href="#programs">לגלות עוד<span aria-hidden="true">↓</span></a>
   </div>
 </header>
 
@@ -65,14 +65,52 @@
   </p>
 </section>
 
+<!-- שינוי מבנה מכוון: הכניסה לעמוד היא דרך "מה אפשר לקבל" ולא דרך הביוגרפיה —
+     כדי שמי שנוחת בדף ידע תוך שניות לאן הוא הולך, לפני שהוא פוגש את הסיפור שמאחורי זה -->
+<section id="programs" class="programs" data-reveal>
+  <span class="programs-arch-mark" aria-hidden="true">
+    <svg viewBox="0 0 200 260"><path d="M0,260 L0,100 A100,100 0 0 1 200,100 L200,260 Z" fill="currentColor"/></svg>
+  </span>
+  <h2>שלוש דרכים להיפגש</h2>
+  <p class="programs-lede">קצת עומק, קצת תרגול, קצת קריאה — כל אחת בקצב שלה, ואפשר לשלב.</p>
+
+  <!-- תוכן לדוגמה: יש לעדכן עם פרטים מדויקים (תאריכים / מחירים / קישורי הרשמה) -->
+  <div class="ways">
+    <article class="way way-featured">
+      <span class="way-tag">הכי מבוקש</span>
+      <h3>ליווי אישי</h3>
+      <p>מסע אישי לצדה של עטרה, לגלות מהי העת המדויקת עבורכם ולשוב אל הקצב הפנימי שלכם.</p>
+      <a class="btn btn-pill" href="#contact">לתאם שיחת היכרות</a>
+    </article>
+
+    <div class="way-secondary">
+      <article class="way way-small">
+        <h3>סדנאות והרצאות</h3>
+        <p>מפגשים קבוצתיים לתרגול חי של הקשבה, נוכחות וחיבור לשפה הפנימית של הרגע.</p>
+        <a class="way-link" href="#contact">לפרטים על המפגש הקרוב ←</a>
+      </article>
+      <article class="way way-small" id="book">
+        <h3>הספר: חכמת הרגע</h3>
+        <p>שפה תודעתית להבנת מערכת ההפעלה של החיים — מתוך הקשבה לרגע ולחיות שבתוכו.</p>
+        <a class="way-link" href="mailto:atara30@gmail.com">לפרטים על הספר ←</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- עדות לדוגמה: יש להחליף בציטוט אמיתי מלקוחה, בכפוף לאישורה, מתוך עמוד "לקוחות משתפות" -->
+<section class="testimonial" data-reveal>
+  <p class="testimonial-quote">"הגעתי כדי ללמוד להקשיב לעצמי, ויצאתי עם שפה שממשיכה ללוות אותי הרבה אחרי הפגישה האחרונה."</p>
+  <p class="testimonial-name">— מתוך עדות לקוחה · השם המלא יעודכן באישורה</p>
+</section>
+
 <section id="about" class="about" data-reveal>
   <div class="about-media about-echo">
     <img class="echo-layer echo-1 arch-photo" src="../../assets/img/atara-about-arch.jpg" alt="" aria-hidden="true">
     <img class="echo-layer echo-2 arch-photo" src="../../assets/img/atara-about-arch.jpg" alt="" aria-hidden="true">
     <img class="echo-layer echo-main arch-photo" src="../../assets/img/atara-about-arch.jpg" alt="עטרה גבריאלי">
-    <span class="about-media-shine" aria-hidden="true"></span>
   </div>
-  <div class="about-text">
+  <div class="about-text-card">
     <h2>על עטרה</h2>
     <p>
       עטרה גבריאלי היא מייסדת מכון חכמת הרגע ומחברת הספר "חכמת הרגע".
@@ -108,46 +146,6 @@
   </div>
 </section>
 
-<section id="programs" class="programs" data-reveal>
-  <span class="programs-arch-mark" aria-hidden="true">
-    <svg viewBox="0 0 200 260"><path d="M0,260 L0,100 A100,100 0 0 1 200,100 L200,260 Z" fill="currentColor"/></svg>
-  </span>
-  <h2>דרכים להיפגש</h2>
-  <!-- תוכן לדוגמה: יש לעדכן עם פרטים מדויקים (תאריכים / מחירים / קישורי הרשמה) -->
-  <div class="cards">
-    <article class="card">
-      <span class="card-num">01</span>
-      <h3>סדנאות והרצאות</h3>
-      <p>מפגשים קבוצתיים לתרגול חי של הקשבה, נוכחות וחיבור לשפה הפנימית של הרגע.</p>
-      <a class="btn btn-pill" href="#contact">לפרטים</a>
-    </article>
-    <article class="card">
-      <span class="card-num">02</span>
-      <h3>ליווי אישי</h3>
-      <p>מסע אישי לצדה של עטרה, לגלות מהי העת המדויקת עבורכם ולשוב אל הקצב הפנימי שלכם.</p>
-      <a class="btn btn-pill" href="#contact">לפרטים</a>
-    </article>
-    <article class="card">
-      <span class="card-num">03</span>
-      <h3>הספר: חכמת הרגע</h3>
-      <p>שפה תודעתית להבנת מערכת ההפעלה של החיים — מתוך הקשבה לרגע ולחיות שבתוכו.</p>
-      <a class="btn btn-pill" href="#book">לפרטים</a>
-    </article>
-  </div>
-</section>
-
-<section id="book" class="book" data-reveal>
-  <img src="../../assets/img/book-cover.jpg" alt="עטיפת הספר חכמת הרגע" class="book-cover">
-  <div class="book-text">
-    <h2>הספר חכמת הרגע</h2>
-    <p>
-      חכמת הרגע היא שפה להבנת מערכת ההפעלה של החיים. היא נולדה מתוך הקשבה
-      לכאן ועכשיו, להווייתנו הקיימת מבלי שנשים לב אליה.
-    </p>
-    <a class="cta" href="#contact">לפרטים על הספר</a>
-  </div>
-</section>
-
 <section id="faq" class="faq" data-reveal>
   <h2>שאלות שחוזרות</h2>
   <!-- שאלות לדוגמה: יש לעדכן בהתאם לשאלות שחוזרות בפועל -->
@@ -170,7 +168,11 @@
 <section id="contact" class="contact" data-reveal>
   <h2>רגע של חיבור</h2>
   <p>מוזמנות ומוזמנים ליצור קשר לכל שאלה, השראה או רצון להעמיק.</p>
-  <a class="cta cta-gold" href="mailto:atara30@gmail.com">atara30@gmail.com</a>
+  <div class="contact-actions">
+    <a class="cta cta-gold" href="mailto:atara30@gmail.com">atara30@gmail.com</a>
+    <!-- קישור וואטסאפ לדוגמה: יש להחליף במספר האמיתי -->
+    <a class="btn btn-pill btn-whatsapp" href="https://api.whatsapp.com/send?phone=972000000000">כתיבה בוואטסאפ</a>
+  </div>
 </section>
 
 <footer class="site-footer">
@@ -184,10 +186,10 @@
     </div>
     <nav class="footer-nav" aria-label="ניווט בפוטר">
       <p class="footer-col-title">ניווט</p>
+      <a href="#programs">דרכים להיפגש</a>
       <a href="#about">על עטרה</a>
       <a href="#scent">חכמת הרגע</a>
-      <a href="#programs">תוכניות</a>
-      <a href="#book">הספר</a>
+      <a href="#faq">שאלות</a>
     </nav>
     <div class="footer-contact">
       <p class="footer-col-title">רגע של חיבור</p>

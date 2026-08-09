@@ -1,10 +1,17 @@
-/* עיצוב 7 — "הד": מיזוג ההשראות. הבסיס הוא עיצוב 3 (קרם/זהב חם, נייבי כ-accent,
-   פרלקסה עדינה) ולתוכו מהדהדים שלושה אלמנטים משלושת העיצובים האחרים:
-   - "הד" תמונת עטרה בעל (על) — שלוש שכבות מתכנסות, בגוונים של העיצובים השונים (השראת עיצוב 4)
-   - זוהר קשת פועם סביב הציטוט המרכזי — הד לחלון-המבט שהיה בהירו בעבר (השראת עיצוב 2)
-   - כרטיסי "דרכים להיפגש" עם כפתורי גלולה וסימון מספר (השראת עיצוב 5)
-   - אקורדיון שאלות ותשובות (השראת עיצוב 6)
-   תמת החוט המקשר: קשת הלוגו מהדהדת שוב ושוב, בעוצמות שונות, בכל אורך העמוד. */
+/* עיצוב 7 — "הד": לא רק עוד "עור" על אותו שלד. שני שינויים אמיתיים ביחס
+   לששת העיצובים האחרים:
+
+   1) סדר תוכן הפוך — העמוד פותח ב"מה אפשר לקבל" (דרכים להיפגש) ורק אחר כך
+      מגיע לביוגרפיה. מי שנוחת בדף יודע תוך שניות למה הוא הגיע, לפני שהוא
+      פוגש את הסיפור שמאחורי זה. הספר מתמזג לתוך "דרכים להיפגש" כאופציה
+      שלישית קטנה, במקום להיות עוד סקציה נפרדת עם עוד כותרת ועוד גריד.
+   2) פריסות א-סימטריות במקום גריד שווה־עמודות שחוזר בכל עיצוב אחר — דרך
+      אחת "מוצעת" גדולה מול שתי דרכים קטנות, ותמונת "על עטרה" גולשת לקצה
+      הסקציה עם כרטיס טקסט צף במקום חלוקת 50/50 סטנדרטית.
+
+   הבסיס הפלטתי עדיין קרם/זהב חם עם נייבי כ-accent (השראת עיצוב 3), עם שני
+   הדים ממוקדים לעיצובים האחרים: שכבות תמונה מתכנסות (עיצוב 4) וזוהר קשת
+   פועם סביב הציטוט (עיצוב 2) — לא כל האפקטים, רק מה שמשרת את רעיון ה"הד". */
 
 body {
   background: var(--cream);
@@ -107,7 +114,7 @@ body {
 
 /* ===== פתיח ===== */
 .intro {
-  padding: 80px 20px;
+  padding: 70px 20px 30px;
   text-align: center;
 }
 
@@ -120,27 +127,180 @@ body {
   line-height: 1.6;
 }
 
-/* ===== אודות — "הד" תמונה: שלוש שכבות מתכנסות (השראת עיצוב 4) ===== */
-.about {
+/* ===== דרכים להיפגש — פותח את העמוד, לא קבור אחרי הביוגרפיה.
+   דרך אחת גדולה ("הכי מבוקש") מול שתי דרכים קטנות — לא שלושה כרטיסים שווים ===== */
+.programs {
+  position: relative;
+  padding: 60px 20px 110px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.programs-arch-mark {
+  position: absolute;
+  top: -40px;
+  inset-inline-end: 50%;
+  transform: translateX(50%);
+  width: 340px;
+  color: var(--gold);
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+.programs h2 {
+  position: relative;
+  font-size: clamp(1.7rem, 3.6vw, 2.3rem);
+  color: var(--blue-royal);
+  margin-bottom: 10px;
+}
+
+.programs-lede {
+  position: relative;
+  color: #6b6046;
+  max-width: 40ch;
+  margin: 0 auto 50px;
+}
+
+.ways {
+  position: relative;
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 60px;
-  align-items: center;
-  padding: 60px 20px 100px;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 26px;
   width: min(1000px, 92%);
   margin-inline: auto;
+  text-align: start;
+  align-items: stretch;
+}
+
+.way {
+  background: #fff;
+  border-radius: 22px;
+  box-shadow: 0 20px 40px -30px rgba(58, 15, 31, 0.25);
+}
+
+.way-featured {
+  position: relative;
+  padding: 44px 38px;
+  background: linear-gradient(155deg, #1f3e75, #16283f);
+  color: var(--cream);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.way-tag {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--navy-deep);
+  background: var(--gold-light);
+  padding: 5px 14px;
+  border-radius: 999px;
+  margin-bottom: 18px;
+}
+
+.way-featured h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  margin-bottom: 14px;
+}
+
+.way-featured p {
+  color: #dbe1ee;
+  margin-bottom: 26px;
+  max-width: 34ch;
+}
+
+.way-secondary {
+  display: grid;
+  gap: 26px;
+}
+
+.way-small {
+  padding: 28px 30px;
+}
+
+.way-small h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--blue-royal);
+  margin-bottom: 10px;
+}
+
+.way-small p {
+  font-size: 0.9rem;
+  color: #574c39;
+  margin-bottom: 14px;
+}
+
+.way-link {
+  font-size: 0.85rem;
+  color: var(--gold);
+  border-bottom: 1px solid var(--gold);
+  padding-bottom: 2px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  width: fit-content;
+}
+
+.btn-pill {
+  padding: 10px 22px;
+  border: 1px solid var(--gold-light);
+  border-radius: 999px;
+  color: var(--cream);
+  transition: background 0.35s var(--ease), color 0.35s var(--ease), transform 0.35s var(--ease);
+}
+
+.btn-pill:hover {
+  background: var(--gold-light);
+  color: var(--navy-deep);
+  transform: translateY(-2px);
+}
+
+/* ===== עדות — פס יחיד, נטמע בין דרכים לביוגרפיה כדי לתת אמון לפני הפרטים ===== */
+.testimonial {
+  background: var(--wine);
+  color: var(--cream);
+  text-align: center;
+  padding: 70px 20px;
+}
+
+.testimonial-quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.6vw, 1.55rem);
+  max-width: 34ch;
+  margin: 0 auto 16px;
+  line-height: 1.5;
+  color: #f3e6d6;
+}
+
+.testimonial-name {
+  font-size: 0.82rem;
+  letter-spacing: 0.05em;
+  color: var(--gold-light);
+}
+
+/* ===== על עטרה — "הד" תמונה גולשת לקצה + כרטיס טקסט צף, לא גריד 50/50 (השראת עיצוב 4) ===== */
+.about {
+  position: relative;
+  padding: 110px 20px 130px;
+  width: min(1100px, 94%);
+  margin-inline: auto;
+  min-height: 740px;
 }
 
 .about-media {
-  position: relative;
-}
-
-.about-photo-frame,
-.about-echo {
-  display: block;
-  width: min(380px, 100%);
-  margin-inline: auto;
-  position: relative;
+  position: absolute;
+  inset-inline-start: 0;
+  top: 0;
+  width: 46%;
   aspect-ratio: 550 / 745;
 }
 
@@ -151,6 +311,7 @@ body {
   height: 100%;
   object-fit: cover;
   object-position: top center;
+  border-radius: 18px;
   transition: transform 1.1s var(--ease), opacity 1.1s var(--ease), filter 1.1s var(--ease);
 }
 
@@ -180,27 +341,18 @@ body {
 .about-media:hover .echo-1 { transform: translate(-15px, 9px) rotate(-2.5deg); }
 .about-media:hover .echo-2 { transform: translate(11px, -7px) rotate(1.8deg); }
 
-.about-media-shine {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.55) 50%, transparent 60%);
-  transform: translateX(-120%);
-  pointer-events: none;
-  z-index: 2;
+.about-text-card {
+  position: relative;
+  margin-inline-start: 40%;
+  background: #fff;
+  border-radius: 22px;
+  padding: 46px 44px;
+  width: min(560px, 58%);
+  box-shadow: 0 30px 60px -34px rgba(58, 15, 31, 0.3);
 }
 
-.about-media:hover .about-media-shine {
-  animation: shine-sweep 1.1s var(--ease);
-}
-
-@keyframes shine-sweep {
-  to { transform: translateX(120%); }
-}
-
-.about-text h2,
+.about-text-card h2,
 .scent h2,
-.programs h2,
-.book h2,
 .faq h2,
 .contact h2 {
   font-size: clamp(1.6rem, 3.4vw, 2.2rem);
@@ -208,7 +360,7 @@ body {
   margin-bottom: 20px;
 }
 
-.about-text p {
+.about-text-card p {
   margin-bottom: 16px;
   color: #4a4030;
 }
@@ -266,127 +418,6 @@ body {
   color: var(--gold) !important;
 }
 
-/* ===== דרכים להיפגש — כרטיסי מספר + כפתור גלולה (השראת עיצוב 5) ===== */
-.programs {
-  position: relative;
-  padding: 100px 20px;
-  text-align: center;
-  overflow: hidden;
-}
-
-.programs-arch-mark {
-  position: absolute;
-  top: -40px;
-  inset-inline-end: 50%;
-  transform: translateX(50%);
-  width: 340px;
-  color: var(--gold);
-  opacity: 0.06;
-  pointer-events: none;
-}
-
-.programs h2 {
-  position: relative;
-  margin-bottom: 50px;
-}
-
-.cards {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  width: min(1000px, 92%);
-  margin-inline: auto;
-}
-
-.card {
-  position: relative;
-  background: #fff;
-  border-radius: 20px;
-  padding: 40px 26px 34px;
-  text-align: start;
-  box-shadow: 0 20px 40px -30px rgba(58, 15, 31, 0.25);
-  transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 30px 50px -28px rgba(58, 15, 31, 0.32);
-}
-
-.card-num {
-  position: absolute;
-  top: 18px;
-  inset-inline-start: 24px;
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
-  color: var(--gold-light);
-}
-
-.card h3 {
-  font-family: var(--font-display);
-  font-size: 1.2rem;
-  color: var(--blue-royal);
-  margin-bottom: 12px;
-}
-
-.card p {
-  font-size: 0.92rem;
-  color: #574c39;
-  margin-bottom: 20px;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-.btn-pill {
-  padding: 9px 20px;
-  border: 1px solid var(--gold);
-  border-radius: 999px;
-  color: var(--blue-royal);
-  transition: background 0.35s var(--ease), color 0.35s var(--ease), transform 0.35s var(--ease);
-}
-
-.btn-pill:hover {
-  background: var(--gold);
-  color: var(--cream);
-  transform: translateY(-2px);
-}
-
-/* ===== הספר ===== */
-.book {
-  display: grid;
-  grid-template-columns: 0.55fr 1fr;
-  gap: 60px;
-  align-items: center;
-  width: min(1000px, 92%);
-  margin-inline: auto;
-  padding: 40px 20px 100px;
-}
-
-.book-cover {
-  border-radius: 20px;
-  box-shadow: 0 30px 60px -24px rgba(58, 15, 31, 0.35);
-}
-
-.book-text p {
-  margin-bottom: 24px;
-  color: #4a4030;
-}
-
-.cta {
-  display: inline-block;
-  font-size: 0.9rem;
-  color: var(--blue-royal);
-  border-bottom: 1px solid var(--blue-royal);
-}
-
 /* ===== שאלות ותשובות — אקורדיון (השראת עיצוב 6) ===== */
 .faq {
   padding: 20px 20px 110px;
@@ -442,7 +473,7 @@ body {
   font-size: 0.94rem;
 }
 
-/* ===== יצירת קשר ===== */
+/* ===== יצירת קשר — אימייל + וואטסאפ, כמו אצל מרבית עמיתות בתחום (לקח ממבנה אתרים דומים) ===== */
 .contact {
   text-align: center;
   padding: 100px 20px 110px;
@@ -461,6 +492,25 @@ body {
   border-bottom: 1px solid var(--gold);
 }
 
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  margin-top: 6px;
+}
+
+.btn-whatsapp {
+  color: var(--blue-royal);
+  border-color: var(--blue-royal);
+}
+
+.btn-whatsapp:hover {
+  background: var(--blue-royal);
+  color: var(--cream);
+}
+
 /* ===== פוטר ===== */
 .site-footer {
   background: var(--wine);
@@ -477,18 +527,33 @@ body {
   color: var(--cream);
 }
 
-@media (max-width: 760px) {
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-    padding-top: 20px;
+@media (max-width: 900px) {
+  .about {
+    min-height: 0;
+    padding: 20px 20px 60px;
   }
+  .about-media {
+    position: relative;
+    width: min(360px, 80%);
+    aspect-ratio: 550 / 745;
+    margin: 0 auto 30px;
+    inset-inline-start: auto;
+    top: auto;
+    bottom: auto;
+  }
+  .about-text-card {
+    margin-inline-start: 0;
+    width: 100%;
+    padding: 34px 28px;
+  }
+}
+
+@media (max-width: 760px) {
   .hero-text { text-align: center; }
   .scroll-cue { display: none; }
-  .about, .book, .scent-inner {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  .cards { grid-template-columns: 1fr; }
+  .scent-inner { grid-template-columns: 1fr; text-align: center; }
+  .ways { grid-template-columns: 1fr; }
   .programs-arch-mark { width: 220px; }
+  .way-featured { text-align: center; align-items: center; }
+  .way-tag { align-self: center; }
 }
