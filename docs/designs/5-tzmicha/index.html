@@ -6,26 +6,26 @@
 <title>חכמת הרגע — עטרה גבריאלי | עיצוב 5: צמיחה</title>
 <meta name="description" content="חכמת הרגע — מכון בהובלת עטרה גבריאלי. עיצוב השראה 5: צמיחה — פלטה חמה של זית וקרם, בהשראת אתרי הורות עדכניים.">
 <link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/css/base.css">
+<link rel="stylesheet" href="../../assets/css/base.css?v=site-structure-4">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <nav class="concept-nav" aria-label="ניווט בין עיצובי ההשראה">
-  <a href="../../index.html">← כל העיצובים</a>
+  <a href="../../?all=1">← כל העיצובים</a>
   <span>|</span>
-  <a href="../1-lavan-zahav/index.html">1</a>
-  <a href="../2-rega-kachol/index.html">2</a>
-  <a href="../3-pesifas/index.html">3</a>
-  <a href="../4-diyokan/index.html">4</a>
-  <a href="../5-tzmicha/index.html" class="current" aria-current="page">5</a>
-  <a href="../6-masa/index.html">6</a>
-  <a href="../7-hed/index.html">7</a>
+  <a href="../1-lavan-zahav/">1</a>
+  <a href="../2-rega-kachol/">2</a>
+  <a href="../3-pesifas/">3</a>
+  <a href="../4-diyokan/">4</a>
+  <a href="../5-tzmicha/" class="current" aria-current="page">5</a>
+  <a href="../6-masa/">6</a>
+  <a href="../7-hed/">7</a>
 </nav>
 
 <header class="site-header">
   <div class="container site-header-inner">
-    <a class="brand" href="#top">
+    <a class="brand" href="/" data-route="/">
       <span class="brand-arch" aria-hidden="true">
         <svg viewBox="0 0 200 260"><path d="M0,260 L0,100 A100,100 0 0 1 200,100 L200,260 Z" fill="currentColor"/></svg>
       </span>
@@ -35,16 +35,25 @@
       <span></span><span></span><span></span>
     </button>
     <nav class="site-nav" id="siteNav" aria-label="ניווט ראשי">
-      <a href="#about">על עטרה</a>
-      <a href="#scent">חכמת הרגע</a>
-      <a href="#explore">מה תמצאי כאן</a>
-      <a href="#programs">תוכניות</a>
-      <a href="#book">הספר</a>
-      <a href="#contact">יצירת קשר</a>
+      <a href="/" data-route="/">בית</a>
+      <a href="/about" data-route="/about">על עטרה</a>
+      <a href="/book" data-route="/book">הספר</a>
+      <details class="nav-group"><summary>מפגשים אישיים</summary><div class="nav-submenu">
+        <a href="/sessions" data-route="/sessions">כל המפגשים</a><a href="/sessions/behirut" data-route="/sessions/behirut">מקום לבהירות</a><a href="/sessions/tnua" data-route="/sessions/tnua">מקום לתנועה</a>
+      </div></details>
+      <details class="nav-group"><summary>קורסים</summary><div class="nav-submenu">
+        <a href="/courses" data-route="/courses">כל הקורסים</a><a href="/courses/regaim" data-route="/courses/regaim">חיה רגעים</a><a href="/courses/shabbat" data-route="/courses/shabbat">כל השבוע מרגיש כמו שבת</a><a href="/courses/isha-poemet" data-route="/courses/isha-poemet">אישה פועמת</a><a href="/courses/basis-iski" data-route="/courses/basis-iski">בסיס עסקי</a>
+      </div></details>
+      <details class="nav-group"><summary>הכשרות</summary><div class="nav-submenu">
+        <a href="/trainings" data-route="/trainings">כל ההכשרות</a><a href="/trainings/yesh-lach-esek" data-route="/trainings/yesh-lach-esek">יש לך עסק</a><a href="/trainings/tipul-todaati" data-route="/trainings/tipul-todaati">הכשרה לטיפול תודעתי</a>
+      </div></details>
+      <a href="/lectures" data-route="/lectures">הרצאות</a>
+      <a href="/contact" data-route="/contact">יצירת קשר</a>
     </nav>
   </div>
 </header>
 
+<main data-home-content>
 <header class="hero" id="top">
   <div class="hero-bg-photo" aria-hidden="true">
     <img src="../../assets/img/atara-hero-bg.jpg" alt="">
@@ -125,7 +134,7 @@
   </div>
 </section>
 
-<section id="about" class="about" data-reveal>
+<section id="about" class="about" data-reveal data-relocated>
   <div class="about-media" data-tilt="6">
     <div class="about-blob">
       <img src="../../assets/img/atara-about-arch.jpg" alt="עטרה גבריאלי מחייכת" class="arch-photo">
@@ -163,21 +172,15 @@
   <div class="cards">
     <article class="card">
       <span class="card-num">01</span>
-      <h3>סדנאות והרצאות</h3>
-      <p>מפגשים קבוצתיים לתרגול חי של הקשבה, נוכחות וחיבור לשפה הפנימית של הרגע.</p>
-      <a class="btn btn-small" href="#contact">לפרטים</a>
+      <h3>מפגשים אישיים</h3><p>מרחב אחד על אחד לבהירות או לתנועה, בהתאם למה שחי ומבקש מקום עכשיו.</p><a class="btn btn-small" href="/sessions" data-route="/sessions">לכל המפגשים</a>
     </article>
     <article class="card">
       <span class="card-num">02</span>
-      <h3>ליווי אישי</h3>
-      <p>מסע אישי לצדה של עטרה, לגלות מהי העת המדויקת עבורכם ולשוב אל הקצב הפנימי שלכם.</p>
-      <a class="btn btn-small" href="#contact">לפרטים</a>
+      <h3>קורסים</h3><p>תהליכים קבוצתיים ללימוד, לתרגול ולהעמקה בשפת חכמת הרגע בתוך החיים.</p><a class="btn btn-small" href="/courses" data-route="/courses">לכל הקורסים</a>
     </article>
     <article class="card">
       <span class="card-num">03</span>
-      <h3>הספר: חכמת הרגע</h3>
-      <p>שפה תודעתית להבנת מערכת ההפעלה של החיים — מתוך הקשבה לרגע ולחיות שבתוכו.</p>
-      <a class="btn btn-small" href="#book">לפרטים</a>
+      <h3>הכשרות מקצועיות</h3><p>מסלולי עומק למלוות ולמטפלות שמבקשות להפוך את השפה לכלי מקצועי.</p><a class="btn btn-small" href="/trainings" data-route="/trainings">לכל ההכשרות</a>
     </article>
   </div>
 </section>
@@ -202,7 +205,7 @@
   </div>
 </section>
 
-<section id="book" class="book" data-reveal>
+<section id="book" class="book" data-reveal data-relocated>
   <img src="../../assets/img/book-cover.jpg" alt="עטיפת הספר חכמת הרגע" class="book-cover">
   <div class="book-text">
     <h2>הספר חכמת הרגע</h2>
@@ -220,6 +223,8 @@
   <a class="btn btn-lime" href="mailto:atara30@gmail.com">atara30@gmail.com</a>
 </section>
 
+</main>
+
 <footer class="site-footer">
   <div class="container footer-top">
     <div class="footer-brand">
@@ -231,10 +236,7 @@
     </div>
     <nav class="footer-nav" aria-label="ניווט בפוטר">
       <p class="footer-col-title">ניווט</p>
-      <a href="#about">על עטרה</a>
-      <a href="#scent">חכמת הרגע</a>
-      <a href="#programs">תוכניות</a>
-      <a href="#book">הספר</a>
+      <a href="/about" data-route="/about">על עטרה</a><a href="/book" data-route="/book">הספר</a><a href="/sessions" data-route="/sessions">מפגשים</a><a href="/courses" data-route="/courses">קורסים</a><a href="/trainings" data-route="/trainings">הכשרות</a>
     </nav>
     <div class="footer-contact">
       <p class="footer-col-title">רגע של חיבור</p>
@@ -244,12 +246,12 @@
   </div>
   <div class="footer-bottom">
     <p>© חכמת הרגע — עטרה גבריאלי</p>
-    <p class="footer-note">עמוד בית זה הוא אחד מתוך שבעה עיצובי השראה — <a href="../../index.html">לצפייה בכולם</a></p>
+    <p class="footer-note">עמוד בית זה הוא אחד מתוך שבעה עיצובי השראה — <a href="../../?all=1">לצפייה בכולם</a></p>
   </div>
 </footer>
 
 <script src="../../assets/js/reveal.js"></script>
-<script src="../../assets/js/nav.js"></script>
+<script src="../../assets/js/nav.js?v=site-structure-7"></script>
 <script src="../../assets/js/tilt.js"></script>
 </body>
 </html>

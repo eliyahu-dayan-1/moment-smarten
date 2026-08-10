@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>מעבירים לעמוד המבוקש — חכמת הרגע</title>
+</head>
+<body>
+  <p>מעבירים לעמוד המבוקש…</p>
+  <script>
+    (function () {
+      var match = window.location.pathname.match(/^(.*\/designs\/\d+-[^/]+)(\/.*)$/);
+      if (!match) {
+        window.location.replace("./");
+        return;
+      }
+      var destination = match[1] + "/?route=" + encodeURIComponent(match[2]);
+      window.location.replace(destination);
+    })();
+  </script>
+</body>
+</html>

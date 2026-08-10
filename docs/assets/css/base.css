@@ -1,4 +1,4 @@
-/* חכמת הרגע — בסיס משותף לכל עיצובי דף הבית */
+/* חכמת הרגע — בסיס משותף לכל שבעת אבות-הטיפוס */
 
 @font-face {
   font-family: "Days";
@@ -70,6 +70,10 @@ body {
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+}
+
+[data-home-content] > [data-relocated] {
+  display: none !important;
 }
 
 img {
@@ -177,8 +181,8 @@ p {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: clamp(16px, 2.6vw, 34px);
-  font-size: 0.88rem;
+  gap: clamp(10px, 1.35vw, 20px);
+  font-size: 0.8rem;
 }
 
 .site-nav a {
@@ -199,6 +203,64 @@ p {
 
 .site-nav a:hover::after {
   width: 100%;
+}
+
+.nav-group {
+  position: relative;
+}
+
+.nav-group summary {
+  list-style: none;
+  cursor: pointer;
+  white-space: nowrap;
+  padding-bottom: 3px;
+}
+
+.nav-group summary::-webkit-details-marker {
+  display: none;
+}
+
+.nav-group summary::after {
+  content: "⌄";
+  display: inline-block;
+  margin-inline-start: 5px;
+  font-size: 0.7em;
+  transition: transform 0.25s var(--ease);
+}
+
+.nav-group[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.nav-submenu {
+  position: absolute;
+  top: calc(100% + 14px);
+  inset-inline-start: 50%;
+  min-width: 230px;
+  padding: 12px;
+  display: grid;
+  gap: 2px;
+  color: var(--navy);
+  background: rgba(251, 247, 238, 0.98);
+  border: 1px solid rgba(182, 147, 90, 0.28);
+  border-radius: 14px;
+  box-shadow: 0 18px 45px rgba(16, 30, 48, 0.18);
+  transform: translateX(50%);
+}
+
+.nav-submenu a {
+  padding: 8px 10px;
+  border-radius: 8px;
+  line-height: 1.35;
+}
+
+.nav-submenu a:hover,
+.nav-submenu a[aria-current="page"] {
+  background: var(--cream-2);
+}
+
+.nav-submenu a::after {
+  display: none;
 }
 
 .nav-toggle {
@@ -234,7 +296,7 @@ p {
   transform: translateY(-6.5px) rotate(-45deg);
 }
 
-@media (max-width: 760px) {
+@media (max-width: 1040px) {
   .nav-toggle {
     display: flex;
   }
@@ -252,12 +314,707 @@ p {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+    max-height: 100svh;
+    overflow-y: auto;
+    color: var(--navy);
+    background: rgba(251, 247, 238, 0.98);
+    box-shadow: 0 18px 45px rgba(16, 30, 48, 0.18);
   }
 
   .site-header.nav-open .site-nav {
     opacity: 1;
     transform: translateY(0);
     pointer-events: auto;
+  }
+
+  .nav-group {
+    width: 100%;
+  }
+
+  .nav-group summary {
+    width: fit-content;
+  }
+
+  .nav-submenu {
+    position: static;
+    transform: none;
+    min-width: 0;
+    margin-top: 8px;
+    padding: 4px 16px 0 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+    gap: 4px;
+  }
+
+  .nav-submenu a {
+    padding: 4px 0;
+    font-size: 0.92rem;
+    opacity: 0.82;
+  }
+}
+
+/* ===== עמודי השלד: משותפים בתוכן, מקבלים אופי מכל קונספט ===== */
+.route-page {
+  --route-accent: var(--gold);
+  --route-accent-soft: rgba(182, 147, 90, 0.16);
+  min-height: 72svh;
+  background:
+    radial-gradient(circle at 88% 8%, var(--route-accent-soft), transparent 30rem),
+    var(--cream);
+  color: var(--navy-deep);
+}
+
+body[data-concept="2"] .route-page { --route-accent: #5579ae; --route-accent-soft: rgba(85, 121, 174, 0.2); }
+body[data-concept="3"] .route-page { --route-accent: #b6935a; --route-accent-soft: rgba(42, 79, 143, 0.14); }
+body[data-concept="4"] .route-page { --route-accent: #772b49; --route-accent-soft: rgba(119, 43, 73, 0.14); }
+body[data-concept="5"] .route-page { --route-accent: #819054; --route-accent-soft: rgba(203, 219, 82, 0.2); }
+body[data-concept="6"] .route-page { --route-accent: #a98b5b; --route-accent-soft: rgba(22, 40, 63, 0.14); }
+body[data-concept="7"] .route-page { --route-accent: #31538b; --route-accent-soft: rgba(49, 83, 139, 0.18); }
+
+.route-hero {
+  padding: clamp(76px, 10vw, 140px) 0 clamp(48px, 7vw, 90px);
+  border-bottom: 1px solid rgba(16, 30, 48, 0.1);
+}
+
+.route-breadcrumbs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 30px;
+  font-size: 0.78rem;
+  color: color-mix(in srgb, var(--route-accent) 75%, var(--navy));
+}
+
+.route-breadcrumbs span {
+  opacity: 0.5;
+}
+
+.route-kicker {
+  margin-bottom: 12px;
+  color: var(--route-accent);
+  font-size: 0.78rem;
+  letter-spacing: 0.24em;
+}
+
+.route-title {
+  max-width: 15ch;
+  font-size: clamp(2.6rem, 7vw, 5.8rem);
+  line-height: 1.04;
+}
+
+.route-lede {
+  max-width: 48ch;
+  margin-top: 28px;
+  font-size: clamp(1.08rem, 2vw, 1.38rem);
+  line-height: 1.75;
+}
+
+.route-body {
+  padding: clamp(52px, 7vw, 96px) 0 120px;
+}
+
+.route-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 20px;
+}
+
+.route-card {
+  min-height: 230px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(16, 30, 48, 0.13);
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.52);
+  transition: transform 0.35s var(--ease), border-color 0.35s var(--ease), box-shadow 0.35s var(--ease);
+}
+
+.route-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--route-accent);
+  box-shadow: 0 22px 50px rgba(16, 30, 48, 0.1);
+}
+
+.route-card-index {
+  margin-bottom: auto;
+  color: var(--route-accent);
+  font-size: 0.76rem;
+  letter-spacing: 0.16em;
+}
+
+.route-card h2 {
+  margin-top: 34px;
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+.route-card p {
+  margin-top: 12px;
+  color: rgba(16, 30, 48, 0.72);
+}
+
+.route-card-link {
+  margin-top: 24px;
+  color: var(--route-accent);
+  font-size: 0.85rem;
+}
+
+.route-placeholder {
+  max-width: 760px;
+  padding: clamp(30px, 5vw, 56px);
+  border-inline-start: 3px solid var(--route-accent);
+  background: rgba(255, 255, 255, 0.48);
+}
+
+.route-content-grid {
+  display: grid;
+  grid-template-columns: minmax(230px, 0.72fr) minmax(0, 1.28fr);
+  gap: clamp(34px, 7vw, 90px);
+  align-items: center;
+}
+
+.route-media {
+  overflow: hidden;
+  min-height: 460px;
+  border-radius: 50% 50% 22px 22px;
+  background: var(--route-accent-soft);
+}
+
+.route-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 460px;
+  object-fit: cover;
+}
+
+.route-media.route-book-media {
+  min-height: 0;
+  padding: 36px;
+  border-radius: 22px;
+}
+
+.route-media.route-book-media img {
+  min-height: 0;
+  height: auto;
+  max-height: 520px;
+  object-fit: contain;
+  filter: drop-shadow(0 22px 28px rgba(16, 30, 48, 0.2));
+}
+
+.route-copy h2,
+.route-contact-card h2 {
+  font-size: clamp(1.7rem, 4vw, 3.1rem);
+  line-height: 1.2;
+}
+
+.route-copy p,
+.route-contact-card p {
+  max-width: 58ch;
+  margin-top: 18px;
+  font-size: 1.08rem;
+}
+
+.route-copy p + p {
+  margin-top: 14px;
+}
+
+.route-action {
+  display: inline-flex;
+  margin-top: 30px;
+  padding: 11px 20px;
+  color: var(--cream);
+  background: var(--route-accent);
+  border-radius: 999px;
+}
+
+.route-contact-card {
+  max-width: 760px;
+  padding: clamp(32px, 6vw, 64px);
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(16, 30, 48, 0.12);
+  border-radius: 24px;
+}
+
+.route-email {
+  display: inline-block;
+  margin-top: 26px;
+  color: var(--route-accent);
+  font-size: clamp(1.05rem, 3vw, 1.45rem);
+  direction: ltr;
+  border-bottom: 1px solid currentColor;
+}
+
+.route-placeholder h2 {
+  font-size: clamp(1.6rem, 4vw, 2.5rem);
+}
+
+.route-placeholder p {
+  margin-top: 16px;
+  font-size: 1.08rem;
+}
+
+.route-back {
+  display: inline-flex;
+  margin-top: 28px;
+  color: var(--route-accent);
+  border-bottom: 1px solid currentColor;
+}
+
+/* 1 — שער: מרחב לבן, קשת אחת וקווים שקטים */
+.route-concept-1 .route-hero {
+  position: relative;
+  min-height: 62svh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 0;
+}
+
+.route-concept-1 .route-hero::after {
+  content: "";
+  position: absolute;
+  width: min(36vw, 430px);
+  aspect-ratio: 0.72;
+  inset-inline-start: 7%;
+  bottom: -42%;
+  border: 1px solid rgba(182, 147, 90, 0.55);
+  border-radius: 50% 50% 0 0;
+}
+
+.route-concept-1 .route-title {
+  max-width: 11ch;
+  font-size: clamp(3.5rem, 9vw, 7.8rem);
+}
+
+.route-concept-1 .route-grid {
+  gap: 0;
+  border-top: 1px solid rgba(16, 30, 48, 0.18);
+}
+
+.route-concept-1 .route-card {
+  min-height: 290px;
+  border: 0;
+  border-inline-start: 1px solid rgba(16, 30, 48, 0.18);
+  border-radius: 0;
+  background: transparent;
+}
+
+.route-concept-1 .route-card:last-child {
+  border-inline-end: 1px solid rgba(16, 30, 48, 0.18);
+}
+
+.route-concept-1 .route-card:hover {
+  transform: none;
+  background: rgba(182, 147, 90, 0.08);
+  box-shadow: none;
+}
+
+.route-concept-1 .route-content-grid {
+  align-items: end;
+}
+
+/* 2 — רגע כחול: חלל כהה, אור ממוקד ושכבות זכוכית */
+.route-concept-2 {
+  color: var(--cream);
+  background:
+    radial-gradient(circle at 52% 4%, rgba(85, 121, 174, 0.32), transparent 28rem),
+    linear-gradient(145deg, #091321, #142a47 70%, #0c192b);
+}
+
+.route-concept-2 .route-hero {
+  min-height: 58svh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border-color: rgba(201, 168, 106, 0.22);
+}
+
+.route-concept-2 .route-breadcrumbs,
+.route-concept-2 .route-title,
+.route-concept-2 .route-lede {
+  margin-inline: auto;
+  justify-content: center;
+}
+
+.route-concept-2 .route-title {
+  color: #e2c58d;
+  text-shadow: 0 0 46px rgba(201, 168, 106, 0.2);
+}
+
+.route-concept-2 .route-lede,
+.route-concept-2 .route-card p {
+  color: rgba(251, 247, 238, 0.76);
+}
+
+.route-concept-2 .route-card,
+.route-concept-2 .route-contact-card,
+.route-concept-2 .route-placeholder {
+  color: var(--cream);
+  border: 1px solid rgba(201, 168, 106, 0.22);
+  background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(85,121,174,0.08));
+  box-shadow: inset 0 1px rgba(255,255,255,0.1), 0 24px 70px rgba(0,0,0,0.18);
+}
+
+.route-concept-2 .route-card:hover {
+  box-shadow: 0 0 0 1px rgba(201,168,106,0.42), 0 28px 80px rgba(0,0,0,0.28);
+}
+
+.route-concept-2 .route-media {
+  border: 1px solid rgba(201, 168, 106, 0.38);
+  box-shadow: 0 0 70px rgba(85, 121, 174, 0.28);
+}
+
+/* 3 — פסיפס: משטחים א־סימטריים וצורות שמתחברות */
+.route-concept-3 {
+  background:
+    linear-gradient(90deg, transparent 49.8%, rgba(42,79,143,0.06) 50%, transparent 50.2%),
+    linear-gradient(0deg, transparent 49.8%, rgba(182,147,90,0.06) 50%, transparent 50.2%),
+    #fffdf8;
+  background-size: 180px 180px;
+}
+
+.route-concept-3 .route-hero .container {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  column-gap: 7vw;
+  align-items: end;
+}
+
+.route-concept-3 .route-breadcrumbs {
+  grid-column: 1 / -1;
+}
+
+.route-concept-3 .route-kicker,
+.route-concept-3 .route-title {
+  grid-column: 1;
+}
+
+.route-concept-3 .route-lede {
+  grid-column: 2;
+  margin-top: 0;
+  padding: 30px;
+  background: rgba(42,79,143,0.08);
+  border-radius: 56px 0 56px 0;
+}
+
+.route-concept-3 .route-grid {
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.route-concept-3 .route-card {
+  grid-column: span 6;
+  border: 0;
+  border-radius: 0 70px 0 70px;
+  background: #f3ecdd;
+}
+
+.route-concept-3 .route-card:nth-child(4n + 1) { grid-column: span 7; background: #e7edf6; }
+.route-concept-3 .route-card:nth-child(4n + 2) { grid-column: span 5; border-radius: 70px 0 70px 0; }
+.route-concept-3 .route-card:nth-child(4n + 3) { grid-column: span 5; background: #f0e3cf; }
+.route-concept-3 .route-card:nth-child(4n + 4) { grid-column: span 7; border-radius: 70px 0 70px 0; background: #edf0e4; }
+
+.route-concept-3 .route-media {
+  clip-path: polygon(16% 0, 100% 0, 100% 82%, 84% 100%, 0 100%, 0 18%);
+  border-radius: 0;
+}
+
+/* 4 — תנועה: היסטים, אלכסונים והד חזותי */
+.route-concept-4 {
+  overflow: hidden;
+  background: linear-gradient(120deg, #fbf7ee 0 68%, rgba(119,43,73,0.1) 68% 100%);
+}
+
+.route-concept-4 .route-hero {
+  position: relative;
+  border: 0;
+}
+
+.route-concept-4 .route-hero::before {
+  content: "";
+  position: absolute;
+  inset: 14% -12% auto auto;
+  width: 70%;
+  height: 46%;
+  border-top: 2px solid rgba(119,43,73,0.25);
+  border-bottom: 18px solid rgba(119,43,73,0.06);
+  transform: rotate(-7deg);
+}
+
+.route-concept-4 .route-title {
+  position: relative;
+  text-shadow: 12px 10px 0 rgba(119,43,73,0.1), 24px 20px 0 rgba(119,43,73,0.05);
+}
+
+.route-concept-4 .route-grid {
+  align-items: start;
+}
+
+.route-concept-4 .route-card {
+  border-radius: 2px;
+  border: 0;
+  border-top: 4px solid var(--route-accent);
+  background: rgba(255,255,255,0.72);
+}
+
+.route-concept-4 .route-card:nth-child(even) {
+  transform: translateY(46px);
+}
+
+.route-concept-4 .route-card:nth-child(even):hover {
+  transform: translateY(36px) translateX(-8px);
+}
+
+.route-concept-4 .route-media {
+  border-radius: 2px;
+  box-shadow: 18px 18px 0 rgba(119,43,73,0.12), 36px 36px 0 rgba(119,43,73,0.05);
+}
+
+/* 5 — צמיחה: כתמי צבע אורגניים, קצוות רכים וקצב משחקי */
+.route-concept-5 {
+  background:
+    radial-gradient(circle at 8% 22%, rgba(210,225,91,0.32), transparent 19rem),
+    radial-gradient(circle at 92% 72%, rgba(77,91,51,0.16), transparent 24rem),
+    #fbf8ec;
+}
+
+.route-concept-5 .route-hero {
+  border: 0;
+}
+
+.route-concept-5 .route-kicker {
+  display: inline-block;
+  padding: 4px 12px;
+  color: #344126;
+  background: #d9e65b;
+  border-radius: 999px;
+}
+
+.route-concept-5 .route-title {
+  color: #35442b;
+}
+
+.route-concept-5 .route-grid {
+  gap: 26px;
+}
+
+.route-concept-5 .route-card {
+  border: 0;
+  border-radius: 42% 58% 22% 38% / 18% 30% 34% 48%;
+  background: rgba(255,255,255,0.72);
+  box-shadow: 0 18px 0 rgba(129,144,84,0.08);
+}
+
+.route-concept-5 .route-card:nth-child(even) {
+  border-radius: 58% 42% 38% 22% / 30% 18% 48% 34%;
+  background: rgba(217,230,91,0.2);
+}
+
+.route-concept-5 .route-card:hover {
+  transform: rotate(-1.2deg) translateY(-6px);
+}
+
+.route-concept-5 .route-media {
+  border-radius: 48% 52% 38% 62% / 35% 42% 58% 65%;
+}
+
+.route-concept-5 .route-action {
+  color: #f9f8ed;
+  background: #52603c;
+}
+
+/* 6 — מסע: ציר, תחנות ומספור גדול */
+.route-concept-6 {
+  background: #f8f3e8;
+}
+
+.route-concept-6 .route-hero {
+  position: relative;
+  min-height: 54svh;
+  overflow: hidden;
+}
+
+.route-concept-6 .route-hero::after {
+  content: attr(data-step);
+  position: absolute;
+  inset-inline-start: 4%;
+  bottom: -0.28em;
+  font-family: var(--font-display);
+  font-size: clamp(12rem, 30vw, 28rem);
+  line-height: 1;
+  color: rgba(16,30,48,0.045);
+  pointer-events: none;
+}
+
+.route-concept-6 .route-hero .container {
+  position: relative;
+  z-index: 1;
+  padding-inline-start: clamp(0px, 9vw, 120px);
+}
+
+.route-concept-6 .route-body > .container {
+  position: relative;
+  padding-inline-start: clamp(30px, 7vw, 90px);
+  border-inline-start: 1px solid rgba(16,30,48,0.22);
+}
+
+.route-concept-6 .route-body > .container::before {
+  content: attr(data-step);
+  position: absolute;
+  top: 0;
+  inset-inline-start: -18px;
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  color: var(--cream);
+  background: var(--navy);
+  border-radius: 50%;
+  font-size: 0.72rem;
+}
+
+.route-concept-6 .route-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+.route-concept-6 .route-card {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 70px minmax(190px, 0.65fr) 1fr auto;
+  align-items: center;
+  gap: 24px;
+  border: 0;
+  border-bottom: 1px solid rgba(16,30,48,0.18);
+  border-radius: 0;
+  background: transparent;
+}
+
+.route-concept-6 .route-card-index,
+.route-concept-6 .route-card h2,
+.route-concept-6 .route-card p,
+.route-concept-6 .route-card-link {
+  margin: 0;
+}
+
+.route-concept-6 .route-card:hover {
+  transform: translateX(-8px);
+  box-shadow: none;
+  background: rgba(182,147,90,0.07);
+}
+
+/* 7 — הד: כותרות חוזרות, טבעות ושכבות מרחפות */
+.route-concept-7 {
+  background:
+    radial-gradient(circle at 82% 18%, transparent 0 90px, rgba(49,83,139,0.08) 91px 93px, transparent 94px 130px, rgba(49,83,139,0.05) 131px 133px, transparent 134px),
+    #faf7ef;
+}
+
+.route-concept-7 .route-hero {
+  min-height: 58svh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border: 0;
+}
+
+.route-concept-7 .route-breadcrumbs,
+.route-concept-7 .route-title,
+.route-concept-7 .route-lede {
+  margin-inline: auto;
+  justify-content: center;
+}
+
+.route-concept-7 .route-title {
+  max-width: none;
+  text-shadow: 7px 0 rgba(49,83,139,0.13), 14px 0 rgba(49,83,139,0.06);
+}
+
+.route-concept-7 .route-grid {
+  gap: 32px;
+}
+
+.route-concept-7 .route-card {
+  min-height: 285px;
+  justify-content: center;
+  border: 1px solid rgba(49,83,139,0.2);
+  border-radius: 50%;
+  text-align: center;
+  background: rgba(255,255,255,0.45);
+  box-shadow: 10px 0 0 rgba(49,83,139,0.06), 20px 0 0 rgba(49,83,139,0.025);
+}
+
+.route-concept-7 .route-card-index {
+  margin-bottom: 0;
+}
+
+.route-concept-7 .route-media {
+  box-shadow: 10px 0 0 rgba(49,83,139,0.12), 20px 0 0 rgba(49,83,139,0.06);
+}
+
+.route-concept-7 .route-contact-card,
+.route-concept-7 .route-placeholder {
+  margin-inline: auto;
+  text-align: center;
+  border-radius: 120px;
+  box-shadow: 10px 0 0 rgba(49,83,139,0.08), 20px 0 0 rgba(49,83,139,0.035);
+}
+
+@media (max-width: 640px) {
+  .route-hero {
+    padding-top: 56px;
+  }
+
+  .route-card {
+    min-height: 200px;
+  }
+
+  .route-content-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .route-media,
+  .route-media img {
+    min-height: 360px;
+  }
+
+  .route-concept-3 .route-hero .container {
+    display: block;
+  }
+
+  .route-concept-3 .route-lede {
+    margin-top: 24px;
+  }
+
+  .route-concept-3 .route-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .route-concept-3 .route-card,
+  .route-concept-3 .route-card:nth-child(n) {
+    grid-column: 1;
+  }
+
+  .route-concept-4 .route-card:nth-child(even),
+  .route-concept-4 .route-card:nth-child(even):hover {
+    transform: none;
+  }
+
+  .route-concept-6 .route-card {
+    grid-template-columns: 44px 1fr;
+  }
+
+  .route-concept-6 .route-card p,
+  .route-concept-6 .route-card-link {
+    grid-column: 2;
+  }
+
+  .route-concept-7 .route-card {
+    min-height: 240px;
   }
 }
 
@@ -399,6 +1156,7 @@ p {
   object-fit: cover;
   object-position: 14% 40%;
   transform: scaleX(-1);
+  filter: brightness(1.12) saturate(1.04);
 }
 
 @media (max-width: 640px) {
@@ -408,7 +1166,7 @@ p {
 
   .hero-bg-photo .hero-bg-overlay {
     background:
-      linear-gradient(180deg, rgba(9, 17, 28, 0.12) 0%, rgba(9, 17, 28, 0.28) 32%, rgba(9, 17, 28, 0.74) 55%, rgba(9, 17, 28, 0.9) 100%);
+      linear-gradient(180deg, rgba(9, 17, 28, 0.06) 0%, rgba(9, 17, 28, 0.16) 32%, rgba(9, 17, 28, 0.52) 58%, rgba(9, 17, 28, 0.7) 100%);
   }
 }
 
@@ -453,8 +1211,8 @@ p {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(9, 17, 28, 0.82) 0%, rgba(9, 17, 28, 0.62) 54%, rgba(9, 17, 28, 0.2) 100%),
-    linear-gradient(0deg, rgba(9, 17, 28, 0.55) 0%, rgba(9, 17, 28, 0.05) 30%, rgba(9, 17, 28, 0.05) 70%, rgba(9, 17, 28, 0.4) 100%);
+    linear-gradient(90deg, rgba(9, 17, 28, 0.64) 0%, rgba(9, 17, 28, 0.44) 54%, rgba(9, 17, 28, 0.1) 100%),
+    linear-gradient(0deg, rgba(9, 17, 28, 0.38) 0%, rgba(9, 17, 28, 0.02) 30%, rgba(9, 17, 28, 0.02) 70%, rgba(9, 17, 28, 0.27) 100%);
 }
 
 /* אותיות נופלות — שכבת קישוט בהירו, קשורה לגלילה */
