@@ -129,11 +129,6 @@ body {
 }
 
 @media (min-width: 860px) {
-  .hero-bg-photo {
-    inset-inline-end: auto;
-    width: 38%;
-  }
-
   .hero-inner {
     align-items: flex-end;
   }
