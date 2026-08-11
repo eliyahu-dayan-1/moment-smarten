@@ -148,8 +148,8 @@ body {
 .intro {
   padding: 90px 20px;
   text-align: center;
-  background: #11304b;
-  color: #cfd8e4;
+  background: linear-gradient(90deg, #192b43 0%, #1d3550 15%, #21486b 30%, #3a6d98 50%, #3c6d98 70%, #3c6d98 100%);
+  color: #eaf0f6;
 }
 
 .intro p {
