@@ -96,6 +96,13 @@ body {
   50% { opacity: 1; }
 }
 
+.eyebrow {
+  font-size: clamp(1.1rem, 2.2vw, 1.7rem);
+  letter-spacing: 0.12em;
+  color: var(--gold-light);
+  margin-bottom: 8px;
+}
+
 .wordmark {
   position: relative;
   font-size: clamp(2.6rem, 8vw, 5rem);
@@ -106,9 +113,32 @@ body {
   color: transparent;
 }
 
+.quote-mark {
+  position: absolute;
+  z-index: -1;
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  line-height: 1;
+  color: var(--blue-royal-light);
+  opacity: 0.4;
+  background: none;
+  -webkit-background-clip: initial;
+  background-clip: initial;
+}
+
+.quote-open {
+  top: -1.6rem;
+  inset-inline-start: -0.4rem;
+}
+
+.quote-close {
+  bottom: -1.9rem;
+  inset-inline-end: -0.4rem;
+}
+
 .byline {
   font-family: var(--font-display);
-  font-size: clamp(1.3rem, 4vw, 2.5rem);
+  font-size: clamp(1.1rem, 2.2vw, 1.7rem);
   background: linear-gradient(180deg, #f0dfb8, var(--gold));
   -webkit-background-clip: text;
   background-clip: text;
@@ -118,7 +148,7 @@ body {
 }
 
 .scroll-cue {
-  margin-top: 70px;
+  margin-top: 30px;
   font-size: clamp(1.1rem, 2.2vw, 1.7rem);
   color: var(--gold-light);
   opacity: 0.8;
@@ -126,21 +156,6 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 6px;
-}
-
-@media (min-width: 860px) {
-  .hero-bg-photo {
-    inset-inline-end: auto;
-    width: 38%;
-  }
-
-  .hero-inner {
-    align-items: flex-end;
-  }
-
-  .hero-copy {
-    max-width: 640px;
-  }
 }
 
 .scroll-cue span { animation: bob 2.4s ease-in-out infinite; }
@@ -153,7 +168,7 @@ body {
 .intro {
   padding: 90px 20px;
   text-align: center;
-  background: #11304b;
+  background: #0b1522;
   color: #cfd8e4;
 }
 
@@ -207,16 +222,15 @@ body {
 }
 
 .scent {
-  background: #11304b;
+  background: #0b1522;
   text-align: center;
   padding: 110px 20px;
 }
 
 .scent-arch {
-  width: 120px;
-  height: 156px;
+  width: 90px;
   margin: 0 auto 24px;
-  opacity: 0.9;
+  opacity: 0.85;
   animation: breathe 8s ease-in-out infinite;
 }
 
@@ -293,70 +307,25 @@ body {
   align-items: center;
   width: min(1000px, 92%);
   margin-inline: auto;
-  padding: 130px 20px;
-  background: var(--wine);
-  border-radius: 28px;
-}
-
-.book-3d-wrap {
-  perspective: 1400px;
-  padding: 30px;
-}
-
-.book-3d {
-  position: relative;
-  width: min(280px, 100%);
-  margin-inline: auto;
-  transform-style: preserve-3d;
-  transform: rotateY(-20deg) rotateX(2deg);
-  transition: transform 0.7s var(--ease);
-}
-
-.book-3d:hover {
-  transform: rotateY(-20deg) rotateX(66deg) translateY(18px);
+  padding: 110px 20px;
 }
 
 .book-cover {
-  display: block;
-  width: 100%;
   border-radius: 2px;
-  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.7);
-}
-
-.book-spine {
-  position: absolute;
-  inset-block: 0;
-  inset-inline-start: -20px;
-  width: 20px;
-  background: linear-gradient(90deg, #200910, var(--wine));
-  transform: rotateY(90deg);
-  transform-origin: 100% 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  writing-mode: vertical-rl;
-  color: var(--gold-light);
-  font-family: var(--font-display);
-  font-size: 0.78rem;
-  letter-spacing: 0.06em;
-  border-radius: 2px 0 0 2px;
-}
-
-.book-text h2 {
-  color: var(--gold-light);
+  box-shadow: 0 30px 70px -20px rgba(0, 0, 0, 0.6);
 }
 
 .book-text p {
   margin-bottom: 24px;
-  color: var(--cream);
-  opacity: 0.85;
+  color: var(--ink);
+  opacity: 0.82;
 }
 
 .cta {
   display: inline-block;
   font-size: 0.9rem;
-  color: var(--gold-light);
-  border-bottom: 1px solid var(--gold-light);
+  color: var(--blue-royal);
+  border-bottom: 1px solid var(--blue-royal);
   padding-bottom: 2px;
 }
 
@@ -366,50 +335,21 @@ body {
   background: var(--cream-2);
 }
 
-.contact h2 {
-  max-width: 20ch;
-  margin-inline: auto;
-}
-
-.contact-actions {
-  margin-top: 34px;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-}
-
-.cta-gold,
-.cta-outline {
-  display: inline-block;
-  font-family: var(--font-display);
-  font-size: 1rem;
-  padding: 14px 30px;
-  border-radius: 999px;
+.contact p {
+  margin: 16px 0 30px;
+  color: var(--ink);
+  opacity: 0.82;
 }
 
 .cta-gold {
-  color: var(--cream);
-  background: var(--blue-royal);
-}
-
-.cta-outline {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
   color: var(--blue-royal);
-  border: 1px solid var(--blue-royal);
-}
-
-.contact-email {
-  display: inline-block;
-  margin-top: 26px;
-  font-size: 0.9rem;
-  color: var(--ink);
-  opacity: 0.7;
-  border-bottom: 1px solid currentColor;
+  border-bottom: 1px solid var(--blue-royal);
 }
 
 .site-footer {
-  background: #11304b;
+  background: var(--navy);
   color: var(--cream);
 }
 
