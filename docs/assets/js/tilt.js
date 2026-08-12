@@ -1,4 +1,4 @@
-// חכמת הרגע — הטיה עדינה בעכבר לאלמנטים עם [data-tilt], משותף לכל עיצובי דף הבית
+// חכמת הרגע, הטיה עדינה בעכבר לאלמנטים עם [data-tilt], משותף לכל עיצובי דף הבית
 (function () {
   var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var items = document.querySelectorAll("[data-tilt]");

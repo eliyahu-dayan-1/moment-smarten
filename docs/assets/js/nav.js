@@ -1,10 +1,10 @@
-// חכמת הרגע — ניווט, ניתוב ותוכן השלד המשותף לכל שבעת העיצובים
+// חכמת הרגע, ניווט, ניתוב ותוכן השלד
 (function () {
   var routeData = {
     "/about": { title: "על עטרה", kicker: "הסיפור והדרך", lede: "היכרות עם עטרה גבריאלי, מייסדת חכמת הרגע, ועם הדרך שממנה נולדה השפה." },
     "/book": { title: "הספר", kicker: "חכמת הרגע", lede: "הספר שמזמין לפגוש את מערכת ההפעלה של החיים דרך הקשבה פשוטה למה שחי עכשיו." },
     "/sessions": {
-      title: "מפגשים אישיים", kicker: "מרחב אחד על אחד", lede: "שני מרחבים אישיים, ממוקדים וקרובים — לבהירות או לתנועה.",
+      title: "מפגשים אישיים", kicker: "מרחב אחד על אחד", lede: "שני מרחבים אישיים, ממוקדים וקרובים, לבהירות או לתנועה.",
       cards: [
         ["/sessions/behirut", "מקום לבהירות", "מפגש אישי להתבוננות, דיוק והבנת מה שמבקש להתבהר."],
         ["/sessions/tnua", "מקום לתנועה", "מפגש אישי שמאפשר לעבור מהבנה פנימית לצעד חי ומדויק."]
@@ -34,7 +34,7 @@
     },
     "/trainings/yesh-lach-esek": { title: "יש לך עסק", parent: ["/trainings", "הכשרות מקצועיות"], kicker: "הכשרה למלוות", lede: "מסלול שמחבר בין היכולת ללוות אחרות לבין עסק שמחזיק את העבודה לאורך זמן." },
     "/trainings/tipul-todaati": { title: "הכשרה לטיפול תודעתי", parent: ["/trainings", "הכשרות מקצועיות"], kicker: "הכשרה מקצועית", lede: "מסלול הכשרה מעמיק לעבודה תודעתית מקצועית, אחראית ומחוברת." },
-    "/lectures": { title: "הרצאות", kicker: "מפגש לקהל ולקהילה", lede: "הרצאות שמביאות את חכמת הרגע לארגונים, לקהילות ולקבוצות — בשפה בהירה, חיה ונגישה." },
+    "/lectures": { title: "הרצאות", kicker: "מפגש לקהל ולקהילה", lede: "הרצאות שמביאות את חכמת הרגע לארגונים, לקהילות ולקבוצות, בשפה בהירה, חיה ונגישה." },
     "/contact": { title: "יצירת קשר", kicker: "מתחילות מכאן", lede: "אפשר לכתוב, לשאול ולהתייעץ כדי להבין מהו המרחב שמתאים לך עכשיו." }
   };
 
@@ -43,14 +43,13 @@
   var nav = document.querySelector(".site-nav");
   if (!header) return;
 
-  var slugMatch = window.location.pathname.match(/\/designs\/(\d+)-([^/]+)/);
-  var designPathMatch = window.location.pathname.match(/^(.*\/designs\/\d+-[^/]+)/);
-  var designBase = designPathMatch ? designPathMatch[1] : "";
-  var siteBase = designBase.indexOf("/designs/") >= 0 ? designBase.split("/designs/")[0] : "";
-  var conceptNumber = slugMatch ? slugMatch[1] : "1";
+  var navScript = document.currentScript;
+  var scriptPath = navScript ? new URL(navScript.src, window.location.href).pathname : window.location.pathname;
+  var designBase = scriptPath.replace(/assets\/js\/nav\.js.*$/, "").replace(/\/$/, "");
+  var siteBase = designBase;
   var homeContent = document.querySelector("[data-home-content]");
   var routePage = null;
-  document.body.setAttribute("data-concept", conceptNumber);
+  document.body.setAttribute("data-concept", "2");
 
   // קיבוע כתובת האייקון לפני שינוי ה-URL, כדי שלא תישבר בנתיבים עמוקים.
   var favicon = document.querySelector('link[rel~="icon"]');
@@ -148,7 +147,7 @@
       return '<div class="route-content-grid">' +
         '<div class="route-media route-book-media"><img src="' + assetHref("img/book-cover.jpg") + '" alt="עטיפת הספר חכמת הרגע"></div>' +
         '<div class="route-copy"><h2>שפה להבנת מערכת ההפעלה של החיים</h2>' +
-        '<p>„חכמת הרגע” נולד מתוך הקשבה לכאן ולעכשיו — להוויה שכבר קיימת בתוכנו, גם כאשר איננו שמים לב אליה.</p>' +
+        '<p>„חכמת הרגע” נולד מתוך הקשבה לכאן ולעכשיו, להוויה שכבר קיימת בתוכנו, גם כאשר איננו שמים לב אליה.</p>' +
         '<p>הספר מציע דרך לפגוש את הרגע לא כנקודה שצריך לעבור דרכה, אלא כמקום שממנו אפשר להבין, להרגיש ולבחור את התנועה הבאה.</p>' +
         '<a class="route-action" href="' + routeHref("/contact") + '" data-route="/contact">לפרטים על הספר</a></div></div>';
     }
@@ -162,7 +161,7 @@
 
     if (route === "/contact") {
       return '<div class="route-contact-card"><h2>אפשר להתחיל בשיחה</h2>' +
-        '<p>כתבו בקצרה מה מעסיק אתכן ומהו המרחב שמעניין אתכן — מפגש אישי, קורס, הכשרה, הרצאה או הספר.</p>' +
+        '<p>כתבו בקצרה מה מעסיק אתכן ומהו המרחב שמעניין אתכן, מפגש אישי, קורס, הכשרה, הרצאה או הספר.</p>' +
         '<a class="route-email" href="mailto:atara30@gmail.com">atara30@gmail.com</a></div>';
     }
 
@@ -193,7 +192,7 @@
       if (routePage) routePage.remove();
       routePage = null;
       if (homeContent) homeContent.hidden = false;
-      document.title = "חכמת הרגע — עטרה גבריאלי";
+      document.title = "חכמת הרגע | עטרה גבריאלי";
       if (!options.noScroll) window.scrollTo({ top: 0, behavior: "smooth" });
       return;
     }
@@ -221,7 +220,7 @@
     routePage.querySelector(".route-body > .container").setAttribute("data-step", routeStep(route));
 
     header.insertAdjacentElement("afterend", routePage);
-    document.title = page.title + " — חכמת הרגע";
+    document.title = page.title + " | חכמת הרגע";
     bindRouteLinks(routePage);
     if (!options.noScroll) window.scrollTo({ top: 0, behavior: "smooth" });
   }

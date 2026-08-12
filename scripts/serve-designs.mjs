@@ -59,9 +59,8 @@ createServer(async (request, response) => {
     return;
   }
 
-  const routeMatch = pathname.match(/^(\/designs\/\d+-[^/]+)(\/.*)$/);
-  if (routeMatch) {
-    const destination = routeMatch[1] + "/?route=" + encodeURIComponent(routeMatch[2]);
+  if (pathname !== "/" && pathname !== "") {
+    const destination = "/?route=" + encodeURIComponent(pathname);
     response.writeHead(302, { Location: destination, "Cache-Control": "no-store" });
     response.end();
     return;

@@ -1,4 +1,4 @@
-// חכמת הרגע — reveal-on-scroll משותף לכל עיצובי דף הבית
+// חכמת הרגע, reveal-on-scroll משותף לכל עיצובי דף הבית
 (function () {
   var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var items = document.querySelectorAll("[data-reveal]");

@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>הכשרה לטיפול תודעתי בחכמת הרגע — עטרה גבריאלי</title>
-<meta name="description" content="הכשרה מקצועית לטיפול תודעתי בחכמת הרגע — 16 מפגשים בארבעה שערים, בהובלת עטרה גבריאלי.">
-<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/css/base.css?v=site-structure-4">
+<title>הכשרה לטיפול תודעתי בחכמת הרגע, עטרה גבריאלי</title>
+<meta name="description" content="הכשרה מקצועית לטיפול תודעתי בחכמת הרגע, 16 מפגשים בארבעה שערים, בהובלת עטרה גבריאלי.">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/css/base.css?v=site-structure-4">
 <link rel="stylesheet" href="style.css">
 <style>
-  /* ===== דף נחיתה: הכשרה לטיפול תודעתי — בלי סרגל ניווט ===== */
+  /* ===== דף נחיתה: הכשרה לטיפול תודעתי, בלי סרגל ניווט ===== */
   .landing-hero {
     position: relative;
     min-height: 78svh;
@@ -25,6 +25,33 @@
       linear-gradient(155deg, #091321 0%, #142a47 48%, #2a1220 82%, #1c0d18 100%);
   }
 
+  .landing-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+  }
+
+  .landing-hero-bg img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 88% 20%;
+    opacity: 0.55;
+    filter: saturate(0.85);
+  }
+
+  .landing-hero-bg::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 45% at 50% 38%, rgba(9, 13, 20, 0.72), transparent 70%),
+      linear-gradient(90deg, #091321 0%, rgba(9, 19, 33, 0.5) 32%, rgba(9, 19, 33, 0.12) 58%, rgba(15, 10, 16, 0.6) 86%, #1c0d18 100%),
+      linear-gradient(0deg, #1c0d18 0%, rgba(28, 13, 24, 0.15) 22%, rgba(9, 19, 33, 0.05) 55%, rgba(9, 19, 33, 0.5) 100%);
+  }
+
   .landing-hero-glow {
     position: absolute;
     top: -12%;
@@ -37,6 +64,7 @@
     background: radial-gradient(circle, rgba(201, 168, 106, 0.26) 0%, rgba(201, 168, 106, 0) 70%);
     animation: glow-breathe 7s ease-in-out infinite;
     pointer-events: none;
+    z-index: 1;
   }
 
   .landing-hero-inner {
@@ -116,7 +144,7 @@
 
   .landing-intro p + p.lede { margin-top: 20px; }
 
-  /* פורמט ההכשרה — כרטיסי מידע */
+  /* פורמט ההכשרה, כרטיסי מידע */
   .landing-format {
     padding: 70px 20px 100px;
     background: var(--cream-2);
@@ -159,7 +187,7 @@
     line-height: 1.55;
   }
 
-  /* מבנה ההכשרה — שערים ומפגשים */
+  /* מבנה ההכשרה, שערים ומפגשים */
   .landing-structure {
     padding: 100px 20px 110px;
     background:
@@ -346,7 +374,7 @@
     opacity: 1;
   }
 
-  /* סטריפ היכרות — נעים מאוד, אני עטרה גבריאלי */
+  /* סטריפ היכרות, נעים מאוד, אני עטרה גבריאלי */
   .bio-strip {
     padding: 100px 20px;
     background: var(--cream);
@@ -400,7 +428,7 @@
     .bio-media img { min-height: 300px; }
   }
 
-  /* איך זה מתקיים — פרונטלי + זום */
+  /* איך זה מתקיים, פרונטלי + זום */
   .landing-howto {
     padding: 100px 20px;
     background: var(--cream-2);
@@ -447,7 +475,7 @@
     line-height: 1.65;
   }
 
-  /* ההצעה — מחיר ואפשרויות תשלום */
+  /* ההצעה, מחיר ואפשרויות תשלום */
   .landing-offer {
     padding: 110px 20px;
     background:
@@ -626,11 +654,14 @@
 <main>
 
 <header class="landing-hero">
+  <div class="landing-hero-bg" aria-hidden="true">
+    <img src="assets/img/atara-hero-mic.jpg" alt="">
+  </div>
   <div class="landing-hero-glow" aria-hidden="true"></div>
   <div class="landing-hero-inner">
     <p class="landing-kicker">הכשרה מקצועית · חכמת הרגע</p>
     <h1 class="landing-title">הכשרה לטיפול תודעתי בחכמת הרגע</h1>
-    <p class="landing-subtitle">מסלול עומק ללימוד, תרגול ויישום מקצועי של טיפול תודעתי — בהובלת עטרה גבריאלי, מייסדת חכמת הרגע.</p>
+    <p class="landing-subtitle">מסלול עומק ללימוד, תרגול ויישום מקצועי של טיפול תודעתי, בהובלת עטרה גבריאלי, מייסדת חכמת הרגע.</p>
     <div class="landing-hero-actions">
       <a class="cta-gold" href="#contact">לפרטים ולהרשמה</a>
       <a class="cta-outline" href="#structure" style="color:var(--cream);border-color:rgba(251,247,238,0.5)">למבנה ההכשרה</a>
@@ -646,18 +677,18 @@
 <section class="bio-strip" data-reveal>
   <div class="bio-grid">
     <div class="bio-media">
-      <img src="../../assets/img/atara-navy-profile-smile.jpg" alt="עטרה גבריאלי">
+      <img src="assets/img/atara-navy-profile-smile.jpg" alt="עטרה גבריאלי">
     </div>
     <div class="bio-copy">
       <p class="landing-kicker">מי מלמדת את ההכשרה</p>
-      <p class="greeting">נעים מאוד, אני עטרה גבריאלי — מייסדת מכון חכמת הרגע.</p>
+      <p class="greeting">נעים מאוד, אני עטרה גבריאלי, מייסדת מכון חכמת הרגע.</p>
       <p>
         דרך הכתיבה, ההוראה והליווי האישי שלי, ודרך הספר "חכמת הרגע", אני מלווה שנים ארוכות
-        מטפלות, מלוות ונשות מקצוע שרוצות לשאוב מתוך שפה תודעתית מדויקת — לא עוד שיטה שמצטרפת
+        מטפלות, מלוות ונשות מקצוע שרוצות לשאוב מתוך שפה תודעתית מדויקת, לא עוד שיטה שמצטרפת
         לארגז הכלים, אלא נקודת מבט שמשנה את כל הדרך שבה מקשיבים לאדם שמולנו.
       </p>
       <p>
-        ההכשרה הזאת היא ריכוז של שנים של עבודה קלינית, הוראה וליווי — מתורגמת למסלול מובנה,
+        ההכשרה הזאת היא ריכוז של שנים של עבודה קלינית, הוראה וליווי, מתורגמת למסלול מובנה,
         הדרגתי ומלווה, שמאפשר לכל אחת לקחת את השפה הזו ולהפוך אותה לכלי מקצועי אמיתי בעבודה שלה.
       </p>
     </div>
@@ -666,7 +697,7 @@
 
 <section class="landing-intro" data-reveal>
   <p class="lede">
-    חכמת הרגע היא שפה טיפולית שאינה מסתפקת בטיפול בגוף, ברגש או בנפש בלבד — היא פוגשת את התודעה
+    חכמת הרגע היא שפה טיפולית שאינה מסתפקת בטיפול בגוף, ברגש או בנפש בלבד, היא פוגשת את התודעה
     שממנה האדם קורא את המציאות שלו. ההכשרה מלמדת כיצד להקשיב לא רק למה שקרה, אלא מאיזו נקודה
     האדם נמצא כשהוא מספר את הסיפור שלו.
   </p>
@@ -678,10 +709,10 @@
 
 <section class="landing-format" data-reveal>
   <div class="format-grid">
-    <div class="format-item"><span class="num">01</span><h3>שער ראשון</h3><p>ללמוד את שפת החיים — יסודות הטיפול התודעתי, השפה והרגע כמערכת הפעלה.</p></div>
-    <div class="format-item"><span class="num">02</span><h3>שער שני</h3><p>אבחון תודעתי — שלושת הצירים ומיפוי נקודות התקיעות.</p></div>
-    <div class="format-item"><span class="num">03</span><h3>שער שלישי</h3><p>תנועה וריפוי — כלים לעבודה עם כאב, זיכרון, אינטואיציה ופורקן.</p></div>
-    <div class="format-item"><span class="num">04</span><h3>שער רביעי</h3><p>החזקת מרחב טיפולי — מבנה מפגש, אתיקה ופרקטיקום.</p></div>
+    <div class="format-item"><span class="num">01</span><h3>שער ראשון</h3><p>ללמוד את שפת החיים, יסודות הטיפול התודעתי, השפה והרגע כמערכת הפעלה.</p></div>
+    <div class="format-item"><span class="num">02</span><h3>שער שני</h3><p>אבחון תודעתי, שלושת הצירים ומיפוי נקודות התקיעות.</p></div>
+    <div class="format-item"><span class="num">03</span><h3>שער שלישי</h3><p>תנועה וריפוי, כלים לעבודה עם כאב, זיכרון, אינטואיציה ופורקן.</p></div>
+    <div class="format-item"><span class="num">04</span><h3>שער רביעי</h3><p>החזקת מרחב טיפולי, מבנה מפגש, אתיקה ופרקטיקום.</p></div>
   </div>
 </section>
 
@@ -694,7 +725,7 @@
     <div class="howto-item">
       <span class="tag">פרונטלי</span>
       <h3>לומדות באולם, יחד</h3>
-      <p>עיקר ההכשרה מתקיימת פנים אל פנים — כך שהתרגול, ההדגמה מתוך מקרה והעבודה בזוגות קורים במרחב חי ומוחזק, ולא רק מול מסך.</p>
+      <p>עיקר ההכשרה מתקיימת פנים אל פנים, כך שהתרגול, ההדגמה מתוך מקרה והעבודה בזוגות קורים במרחב חי ומוחזק, ולא רק מול מסך.</p>
     </div>
     <div class="howto-item">
       <span class="tag" style="background:rgba(154,46,74,0.12);color:var(--wine)">אופציית זום</span>
@@ -841,7 +872,7 @@
   <div class="offer-card">
     <p class="landing-kicker">ההצעה</p>
     <h2>הצטרפות להכשרה לטיפול תודעתי</h2>
-    <p class="offer-price"><sup>₪</sup>16,000<span>למסלול המלא — 16 מפגשים, ארבעה שערים</span></p>
+    <p class="offer-price"><sup>₪</sup>16,000<span>למסלול המלא, 16 מפגשים, ארבעה שערים</span></p>
     <ul class="offer-includes">
       <li>16 מפגשים פרונטליים, עם אופציית השתתפות בזום</li>
       <li>הקלטות של כל מפגש לצפייה חוזרת</li>
@@ -856,7 +887,7 @@
       </div>
       <div>
         <h4>פריסת תשלומים</h4>
-        <p>ניתן לפרוס את התשלום למספר תשלומים לאורך ההכשרה — לתיאום מול הצטרפות.</p>
+        <p>ניתן לפרוס את התשלום למספר תשלומים לאורך ההכשרה, לתיאום מול הצטרפות.</p>
       </div>
     </div>
     <a class="cta-gold" href="#contact">לבירור פרטים והרשמה</a>
@@ -875,15 +906,15 @@
     </details>
     <details class="qa">
       <summary>מה הידע המקדים שצריך?<span class="qa-chevron" aria-hidden="true">▾</span></summary>
-      <div class="qa-body">אין צורך ברקע פורמלי בטיפול כדי להתחיל. מה שכן נדרש הוא ניסיון קודם בליווי או בהקשבה לאנשים — במסגרת מקצועית או אישית — לצד פתיחות אמיתית לעבודת התבוננות פנימית, גם על עצמכן.</div>
+      <div class="qa-body">אין צורך ברקע פורמלי בטיפול כדי להתחיל. מה שכן נדרש הוא ניסיון קודם בליווי או בהקשבה לאנשים, במסגרת מקצועית או אישית, לצד פתיחות אמיתית לעבודת התבוננות פנימית, גם על עצמכן.</div>
     </details>
     <details class="qa">
       <summary>באילו מצבים הטיפול התודעתי עוזר?<span class="qa-chevron" aria-hidden="true">▾</span></summary>
-      <div class="qa-body">כשמטופל תקוע בדפוס שחוזר על עצמו, כשהוא יודע "מה נכון" אך לא מצליח לנוע, כשהוא מתקשה לבחור, מרגיש מנותק מהחיות שלו, נאחז בעבר או בורח קדימה אל העתיד — ובכל מצב שבו טיפול קודם נגע בתוכן אך לא הזיז את נקודת המבט שממנה הוא נחווה.</div>
+      <div class="qa-body">כשמטופל תקוע בדפוס שחוזר על עצמו, כשהוא יודע "מה נכון" אך לא מצליח לנוע, כשהוא מתקשה לבחור, מרגיש מנותק מהחיות שלו, נאחז בעבר או בורח קדימה אל העתיד, ובכל מצב שבו טיפול קודם נגע בתוכן אך לא הזיז את נקודת המבט שממנה הוא נחווה.</div>
     </details>
     <details class="qa">
       <summary>איך נראה מפגש טיפול בשיטה?<span class="qa-chevron" aria-hidden="true">▾</span></summary>
-      <div class="qa-body">מפגש נפתח בהקשבה לסיפור כפי שהוא, ממשיך במיפוי התודעה הפעילה דרך שלושת הצירים, ובחירת שער כניסה מתאים — ומסתיים בתנועה קונקרטית, לא רק בתובנה. את המבנה הזה לומדים ומתרגלים לאורך כל ההכשרה, ובפרוטרוט במפגש האחרון.</div>
+      <div class="qa-body">מפגש נפתח בהקשבה לסיפור כפי שהוא, ממשיך במיפוי התודעה הפעילה דרך שלושת הצירים, ובחירת שער כניסה מתאים, ומסתיים בתנועה קונקרטית, לא רק בתובנה. את המבנה הזה לומדים ומתרגלים לאורך כל ההכשרה, ובפרוטרוט במפגש האחרון.</div>
     </details>
     <details class="qa">
       <summary>מה קורה אם מפספסים מפגש?<span class="qa-chevron" aria-hidden="true">▾</span></summary>
@@ -902,7 +933,7 @@
 
 <section id="contact" class="landing-contact" data-reveal>
   <h2>מוזמנות להצטרף להכשרה</h2>
-  <p>לפרטים נוספים, תאריכי פתיחה ותנאי הרשמה — אפשר לכתוב ישירות או להצטרף לקבוצת הוואטסאפ של חכמת הרגע.</p>
+  <p>לפרטים נוספים, תאריכי פתיחה ותנאי הרשמה, אפשר לכתוב ישירות או להצטרף לקבוצת הוואטסאפ של חכמת הרגע.</p>
   <div class="landing-contact-actions">
     <a class="cta-gold" href="#">לפרטים והרשמה</a>
     <a class="cta-outline" href="#" style="color:var(--cream);border-color:rgba(251,247,238,0.5)">להצטרפות לקבוצת הוואטסאפ</a>
@@ -913,9 +944,9 @@
 </main>
 
 <footer class="landing-footer">
-  <p>חכמת הרגע · עטרה גבריאלי — <a href="mailto:atara30@gmail.com">atara30@gmail.com</a></p>
+  <p>חכמת הרגע · עטרה גבריאלי, <a href="mailto:atara30@gmail.com">atara30@gmail.com</a></p>
 </footer>
 
-<script src="../../assets/js/reveal.js"></script>
+<script src="assets/js/reveal.js"></script>
 </body>
 </html>

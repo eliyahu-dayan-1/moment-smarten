@@ -3,19 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>מעבירים לעמוד המבוקש — חכמת הרגע</title>
+  <title>מעבירים לעמוד המבוקש, חכמת הרגע</title>
 </head>
 <body>
   <p>מעבירים לעמוד המבוקש…</p>
   <script>
     (function () {
-      var match = window.location.pathname.match(/^(.*\/designs\/\d+-[^/]+)(\/.*)$/);
-      if (!match) {
-        window.location.replace("./");
+      var path = window.location.pathname;
+      var base = "/";
+      if (/\.github\.io$/.test(window.location.hostname)) {
+        var seg = path.split("/")[1];
+        if (seg) base = "/" + seg + "/";
+      }
+      if (path.indexOf(base) !== 0) {
+        window.location.replace(base);
         return;
       }
-      var destination = match[1] + "/?route=" + encodeURIComponent(match[2]);
-      window.location.replace(destination);
+      var route = path.slice(base.length - 1);
+      if (route === "" || route === "/") {
+        window.location.replace(base);
+        return;
+      }
+      window.location.replace(base + "?route=" + encodeURIComponent(route));
     })();
   </script>
 </body>

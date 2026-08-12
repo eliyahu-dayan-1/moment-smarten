@@ -1,4 +1,4 @@
-/* חכמת הרגע — בסיס משותף לכל שבעת אבות-הטיפוס */
+/* חכמת הרגע, בסיס משותף לכל שבעת אבות-הטיפוס */
 
 @font-face {
   font-family: "Days";
@@ -34,7 +34,7 @@
 }
 
 :root {
-  /* פלטה — נגזרת מהלוגו ומתמונות התדמית */
+  /* פלטה, נגזרת מהלוגו ומתמונות התדמית */
   --navy-deep: #101e30;
   --navy: #16283f;
   --blue-royal: #1f3e75;
@@ -69,7 +69,7 @@ body {
   direction: rtl;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
-  /* overflow-x:hidden נשאר רק על html — על body הוא שובר position:sticky בהידר */
+  /* overflow-x:hidden נשאר רק על html, על body הוא שובר position:sticky בהידר */
 }
 
 [data-home-content] > [data-relocated] {
@@ -105,7 +105,7 @@ p {
   margin-inline: auto;
 }
 
-/* פס ניווט קטן וקבוע בין ארבעת עיצובי ההשראה — פינה תחתונה כדי לא להתנגש עם ההידר האמיתי */
+/* פס ניווט קטן וקבוע בין ארבעת עיצובי ההשראה, פינה תחתונה כדי לא להתנגש עם ההידר האמיתי */
 .concept-nav {
   position: fixed;
   bottom: 16px;
@@ -142,7 +142,7 @@ p {
   text-decoration: underline;
 }
 
-/* ===== הידר ראשי — לוגו + ניווט, קבוע בגלילה ===== */
+/* ===== הידר ראשי, לוגו + ניווט, קבוע בגלילה ===== */
 .site-header {
   position: sticky;
   top: 0;
@@ -567,7 +567,7 @@ body[data-concept="7"] .route-page { --route-accent: #31538b; --route-accent-sof
   border-bottom: 1px solid currentColor;
 }
 
-/* 1 — שער: מרחב לבן, קשת אחת וקווים שקטים */
+/* 1, שער: מרחב לבן, קשת אחת וקווים שקטים */
 .route-concept-1 .route-hero {
   position: relative;
   min-height: 62svh;
@@ -620,7 +620,7 @@ body[data-concept="7"] .route-page { --route-accent: #31538b; --route-accent-sof
   align-items: end;
 }
 
-/* 2 — רגע כחול: פתיחה כהה ודרמטית (כמו ההירו), גוף העמוד בהיר */
+/* 2, רגע כחול: פתיחה כהה ודרמטית (כמו ההירו), גוף העמוד בהיר */
 .route-concept-2 {
   color: var(--ink);
   background: var(--cream);
@@ -689,7 +689,7 @@ body[data-concept="7"] .route-page { --route-accent: #31538b; --route-accent-sof
   box-shadow: 0 20px 60px rgba(16, 30, 48, 0.12);
 }
 
-/* 3 — פסיפס: משטחים א־סימטריים וצורות שמתחברות */
+/* 3, פסיפס: משטחים א־סימטריים וצורות שמתחברות */
 .route-concept-3 {
   background:
     linear-gradient(90deg, transparent 49.8%, rgba(42,79,143,0.06) 50%, transparent 50.2%),
@@ -743,7 +743,7 @@ body[data-concept="7"] .route-page { --route-accent: #31538b; --route-accent-sof
   border-radius: 0;
 }
 
-/* 4 — תנועה: היסטים, אלכסונים והד חזותי */
+/* 4, תנועה: היסטים, אלכסונים והד חזותי */
 .route-concept-4 {
   overflow: hidden;
   background: linear-gradient(120deg, #fbf7ee 0 68%, rgba(119,43,73,0.1) 68% 100%);
@@ -794,7 +794,7 @@ body[data-concept="7"] .route-page { --route-accent: #31538b; --route-accent-sof
   box-shadow: 18px 18px 0 rgba(119,43,73,0.12), 36px 36px 0 rgba(119,43,73,0.05);
 }
 
-/* 5 — צמיחה: כתמי צבע אורגניים, קצוות רכים וקצב משחקי */
+/* 5, צמיחה: כתמי צבע אורגניים, קצוות רכים וקצב משחקי */
 .route-concept-5 {
   background:
     radial-gradient(circle at 8% 22%, rgba(210,225,91,0.32), transparent 19rem),
@@ -847,7 +847,7 @@ body[data-concept="7"] .route-page { --route-accent: #31538b; --route-accent-sof
   background: #52603c;
 }
 
-/* 6 — מסע: ציר, תחנות ומספור גדול */
+/* 6, מסע: ציר, תחנות ומספור גדול */
 .route-concept-6 {
   background: #f8f3e8;
 }
@@ -928,7 +928,7 @@ body[data-concept="7"] .route-page { --route-accent: #31538b; --route-accent-sof
   background: rgba(182,147,90,0.07);
 }
 
-/* 7 — הד: כותרות חוזרות, טבעות ושכבות מרחפות */
+/* 7, הד: כותרות חוזרות, טבעות ושכבות מרחפות */
 .route-concept-7 {
   background:
     radial-gradient(circle at 82% 18%, transparent 0 90px, rgba(49,83,139,0.08) 91px 93px, transparent 94px 130px, rgba(49,83,139,0.05) 131px 133px, transparent 134px),
@@ -1040,7 +1040,7 @@ body[data-concept="7"] .route-page { --route-accent: #31538b; --route-accent-sof
   }
 }
 
-/* ===== פוטר מורחב — מותג / ניווט / חיבור / שורת תחתית ===== */
+/* ===== פוטר מורחב, מותג / ניווט / חיבור / שורת תחתית ===== */
 .site-footer {
   padding: 70px 0 0;
 }
@@ -1127,7 +1127,7 @@ body[data-concept="7"] .route-page { --route-accent: #31538b; --route-accent-sof
   }
 }
 
-/* דואוטון משותף — img בגווני אפור + שכבת צבע ב-mix-blend-mode, לכל [class*="duotone-"] */
+/* דואוטון משותף, img בגווני אפור + שכבת צבע ב-mix-blend-mode, לכל [class*="duotone-"] */
 [class*="duotone-"] {
   position: relative;
   overflow: hidden;
@@ -1154,7 +1154,7 @@ body[data-concept="7"] .route-page { --route-accent: #31538b; --route-accent-sof
 .duotone-olive { --duotone-a: #3f4a2e; --duotone-b: #f3ecdd; }
 .duotone-journey { --duotone-a: #101e30; --duotone-b: #b6935a; }
 
-/* מסכת שער — חותכת את תמונת עטרה לצורת הקשת של הלוגו, כדי שתשב ישירות על רקע הדף בלי מלבן לבן מסביב */
+/* מסכת שער, חותכת את תמונת עטרה לצורת הקשת של הלוגו, כדי שתשב ישירות על רקע הדף בלי מלבן לבן מסביב */
 .arch-photo {
   -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NTAgNzQ1Ij48cGF0aCBkPSJNMCw3NDUgTDAsMjc1IEEyNzUsMjc1IDAgMCAxIDU1MCwyNzUgTDU1MCw3NDUgWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==");
   mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NTAgNzQ1Ij48cGF0aCBkPSJNMCw3NDUgTDAsMjc1IEEyNzUsMjc1IDAgMCAxIDU1MCwyNzUgTDU1MCw3NDUgWiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==");
@@ -1164,7 +1164,7 @@ body[data-concept="7"] .route-page { --route-accent: #31538b; --route-accent-sof
   mask-repeat: no-repeat;
 }
 
-/* תמונת רקע משותפת להירו — עטרה נשענת על השולחן, ברקע כל עיצוב */
+/* תמונת רקע משותפת להירו, עטרה נשענת על השולחן, ברקע כל עיצוב */
 .hero-bg-photo {
   position: absolute;
   inset: 0;
@@ -1192,7 +1192,7 @@ body[data-concept="7"] .route-page { --route-accent: #31538b; --route-accent-sof
   }
 }
 
-/* "החלון" שאליו עטרה מביטה — קשת זוהרת, ממוקמת בכיוון המבט שלה (למעלה-ימינה) */
+/* "החלון" שאליו עטרה מביטה, קשת זוהרת, ממוקמת בכיוון המבט שלה (למעלה-ימינה) */
 .gaze-window {
   position: absolute;
   top: 8%;
@@ -1237,7 +1237,7 @@ body[data-concept="7"] .route-page { --route-accent: #31538b; --route-accent-sof
     linear-gradient(0deg, rgba(9, 17, 28, 0.38) 0%, rgba(9, 17, 28, 0.02) 30%, rgba(9, 17, 28, 0.02) 70%, rgba(9, 17, 28, 0.27) 100%);
 }
 
-/* אותיות נופלות — שכבת קישוט בהירו, קשורה לגלילה */
+/* אותיות נופלות, שכבת קישוט בהירו, קשורה לגלילה */
 .falling-letters {
   position: absolute;
   inset: 0;
@@ -1258,7 +1258,7 @@ body[data-concept="7"] .route-page { --route-accent: #31538b; --route-accent-sof
   .falling-letters { display: none; }
 }
 
-/* הטיה עדינה בעכבר — משותף לכל [data-tilt] */
+/* הטיה עדינה בעכבר, משותף לכל [data-tilt] */
 [data-tilt] {
   transform-style: preserve-3d;
   transition: transform 0.25s var(--ease);

@@ -1,4 +1,4 @@
-// חכמת הרגע — אותיות נופלות בהירו, קשורות לגלילה (לא רק לופ עצמאי)
+// חכמת הרגע, אותיות נופלות בהירו, קשורות לגלילה (לא רק לופ עצמאי)
 (function () {
   var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var host = document.querySelector(".falling-letters");
