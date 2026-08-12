@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>הכשרה לטיפול תודעתי בחכמת הרגע — עטרה גבריאלי</title>
+<meta name="description" content="הכשרה מקצועית לטיפול תודעתי בחכמת הרגע — 16 מפגשים בארבעה שערים, בהובלת עטרה גבריאלי.">
+<link rel="icon" href="../../assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../assets/css/base.css?v=site-structure-4">
+<link rel="stylesheet" href="style.css">
+<style>
+  /* ===== דף נחיתה: הכשרה לטיפול תודעתי — בלי סרגל ניווט ===== */
+  .landing-hero {
+    position: relative;
+    min-height: 78svh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 90px 20px 70px;
+    color: var(--cream);
+    background:
+      radial-gradient(circle at 52% 6%, rgba(85, 121, 174, 0.34), transparent 30rem),
+      linear-gradient(150deg, #091321, #142a47 65%, #0c192b);
+  }
+
+  .landing-hero-glow {
+    position: absolute;
+    top: -12%;
+    left: 50%;
+    translate: -50% 0;
+    width: 56vw;
+    max-width: 620px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201, 168, 106, 0.26) 0%, rgba(201, 168, 106, 0) 70%);
+    animation: glow-breathe 7s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .landing-hero-inner {
+    position: relative;
+    z-index: 2;
+    width: min(880px, 92%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .landing-kicker {
+    font-size: 0.9rem;
+    letter-spacing: 0.24em;
+    color: var(--gold-light);
+  }
+
+  .landing-title {
+    max-width: 16ch;
+    font-size: clamp(2.4rem, 6.4vw, 4.4rem);
+    line-height: 1.12;
+    background: linear-gradient(180deg, #f0dfb8, var(--gold));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .landing-subtitle {
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 2.4vw, 1.4rem);
+    color: rgba(251, 247, 238, 0.82);
+    max-width: 46ch;
+  }
+
+  .landing-hero-actions {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .landing-meta {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 26px;
+    font-size: 0.9rem;
+    color: rgba(251, 247, 238, 0.66);
+  }
+
+  .landing-meta span::before {
+    content: "· ";
+    color: var(--gold-light);
+  }
+
+  .landing-meta span:first-child::before { content: ""; }
+
+  /* מבוא */
+  .landing-intro {
+    padding: 90px 20px;
+    text-align: center;
+    background: var(--cream-2);
+  }
+
+  .landing-intro .lede {
+    max-width: 60ch;
+    margin-inline: auto;
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+    color: var(--blue-royal);
+    line-height: 1.65;
+  }
+
+  .landing-intro p + p.lede { margin-top: 20px; }
+
+  /* פורמט ההכשרה — כרטיסי מידע */
+  .landing-format {
+    padding: 70px 20px 100px;
+    background: var(--cream-2);
+  }
+
+  .format-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    width: min(1040px, 94%);
+    margin-inline: auto;
+  }
+
+  .format-item {
+    background: #fff;
+    border: 1px solid rgba(31, 62, 117, 0.14);
+    border-radius: 18px;
+    padding: 26px 22px;
+    text-align: start;
+    box-shadow: 0 14px 40px rgba(16, 30, 48, 0.06);
+  }
+
+  .format-item .num {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .format-item h3 {
+    font-size: 1rem;
+    color: var(--blue-royal);
+    margin-bottom: 6px;
+  }
+
+  .format-item p {
+    font-size: 0.88rem;
+    opacity: 0.75;
+    line-height: 1.55;
+  }
+
+  /* מבנה ההכשרה — שערים ומפגשים */
+  .landing-structure {
+    padding: 100px 20px 110px;
+    background: #11304b;
+  }
+
+  .structure-head {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 56px;
+  }
+
+  .structure-head .landing-kicker { display: block; margin-bottom: 12px; }
+
+  .structure-head h2 {
+    color: var(--gold-light);
+    font-size: clamp(1.7rem, 3.6vw, 2.5rem);
+  }
+
+  .gates {
+    width: min(880px, 94%);
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .gate {
+    border: 1px solid rgba(201, 168, 106, 0.25);
+    border-radius: 20px;
+    background: rgba(251, 247, 238, 0.03);
+    overflow: hidden;
+  }
+
+  .gate summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 22px 26px;
+    color: var(--cream);
+  }
+
+  .gate summary::-webkit-details-marker { display: none; }
+
+  .gate summary .gate-index {
+    flex-shrink: 0;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--gold-light);
+  }
+
+  .gate summary .gate-name {
+    flex-grow: 1;
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+  }
+
+  .gate summary .gate-chevron {
+    flex-shrink: 0;
+    color: var(--gold-light);
+    transition: transform 0.35s var(--ease);
+  }
+
+  .gate[open] summary .gate-chevron { transform: rotate(180deg); }
+
+  .gate-body {
+    padding: 0 26px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .session {
+    padding-top: 20px;
+    border-top: 1px solid rgba(251, 247, 238, 0.1);
+  }
+
+  .session h4 {
+    font-size: 1.02rem;
+    color: var(--gold-light);
+    margin-bottom: 8px;
+  }
+
+  .session p {
+    color: rgba(251, 247, 238, 0.72);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .session p + p { margin-top: 10px; }
+
+  /* תוצרים */
+  .landing-outcomes {
+    padding: 100px 20px;
+    text-align: center;
+    background: var(--cream-2);
+  }
+
+  .landing-outcomes h2 {
+    color: var(--blue-royal);
+    font-size: clamp(1.6rem, 3.4vw, 2.2rem);
+    margin-bottom: 24px;
+  }
+
+  .landing-outcomes .lede {
+    max-width: 62ch;
+    margin: 0 auto 30px;
+    font-family: var(--font-display);
+    font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+    color: var(--ink);
+    line-height: 1.7;
+  }
+
+  .landing-outcomes .note {
+    max-width: 60ch;
+    margin: 0 auto;
+    font-size: 0.95rem;
+    opacity: 0.72;
+    line-height: 1.7;
+  }
+
+  /* יצירת קשר */
+  .landing-contact {
+    text-align: center;
+    padding: 120px 20px;
+    background: var(--wine);
+    color: var(--cream);
+  }
+
+  .landing-contact h2 {
+    max-width: 22ch;
+    margin-inline: auto;
+    color: var(--gold-light);
+    font-size: clamp(1.6rem, 3.4vw, 2.3rem);
+  }
+
+  .landing-contact p {
+    max-width: 50ch;
+    margin: 18px auto 0;
+    color: rgba(251, 247, 238, 0.78);
+  }
+
+  .landing-contact-actions {
+    margin-top: 34px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .landing-contact-email {
+    display: inline-block;
+    margin-top: 30px;
+    font-size: 0.95rem;
+    color: var(--cream);
+    opacity: 0.75;
+    border-bottom: 1px solid currentColor;
+  }
+
+  .landing-footer {
+    padding: 40px 20px;
+    text-align: center;
+    background: #0b1522;
+    color: rgba(251, 247, 238, 0.55);
+    font-size: 0.85rem;
+  }
+
+  .landing-footer a {
+    color: var(--gold-light);
+    opacity: 1;
+  }
+
+  @media (max-width: 860px) {
+    .format-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 560px) {
+    .format-grid { grid-template-columns: 1fr; }
+    .gate summary { padding: 18px 18px; gap: 12px; }
+    .gate-body { padding: 0 18px 22px; }
+  }
+</style>
+</head>
+<body data-concept="2">
+
+<main>
+
+<header class="landing-hero">
+  <div class="landing-hero-glow" aria-hidden="true"></div>
+  <div class="landing-hero-inner">
+    <p class="landing-kicker">הכשרה מקצועית · חכמת הרגע</p>
+    <h1 class="landing-title">הכשרה לטיפול תודעתי בחכמת הרגע</h1>
+    <p class="landing-subtitle">מסלול עומק ללימוד, תרגול ויישום מקצועי של טיפול תודעתי — בהובלת עטרה גבריאלי, מייסדת חכמת הרגע.</p>
+    <div class="landing-hero-actions">
+      <a class="cta-gold" href="#contact">לפרטים ולהרשמה</a>
+      <a class="cta-outline" href="#structure" style="color:var(--cream);border-color:rgba(251,247,238,0.5)">למבנה ההכשרה</a>
+    </div>
+    <div class="landing-meta">
+      <span>16 מפגשים</span>
+      <span>ארבעה שערים</span>
+      <span>לימוד, תרגול והדרכה על מקרים</span>
+    </div>
+  </div>
+</header>
+
+<section class="landing-intro" data-reveal>
+  <p class="lede">
+    חכמת הרגע היא שפה טיפולית שאינה מסתפקת בטיפול בגוף, ברגש או בנפש בלבד — היא פוגשת את התודעה
+    שממנה האדם קורא את המציאות שלו. ההכשרה מלמדת כיצד להקשיב לא רק למה שקרה, אלא מאיזו נקודה
+    האדם נמצא כשהוא מספר את הסיפור שלו.
+  </p>
+  <p class="lede">
+    זוהי הכשרה, לא סדרת שיעורים: כל מפגש כולל לימוד, הדגמה מתוך מקרה, תרגול קצר ועבודת התבוננות
+    בין המפגשים. מהמפגש החמישי מתחילה עבודה בזוגות, ובחלק האחרון משולבת הדרכה קבוצתית על מקרים מן השטח.
+  </p>
+</section>
+
+<section class="landing-format" data-reveal>
+  <div class="format-grid">
+    <div class="format-item"><span class="num">01</span><h3>שער ראשון</h3><p>ללמוד את שפת החיים — יסודות הטיפול התודעתי, השפה והרגע כמערכת הפעלה.</p></div>
+    <div class="format-item"><span class="num">02</span><h3>שער שני</h3><p>אבחון תודעתי — שלושת הצירים ומיפוי נקודות התקיעות.</p></div>
+    <div class="format-item"><span class="num">03</span><h3>שער שלישי</h3><p>תנועה וריפוי — כלים לעבודה עם כאב, זיכרון, אינטואיציה ופורקן.</p></div>
+    <div class="format-item"><span class="num">04</span><h3>שער רביעי</h3><p>החזקת מרחב טיפולי — מבנה מפגש, אתיקה ופרקטיקום.</p></div>
+  </div>
+</section>
+
+<section id="structure" class="landing-structure" data-reveal>
+  <div class="structure-head">
+    <p class="landing-kicker">מבנה ההכשרה</p>
+    <h2>16 מפגשים, ארבעה שערים</h2>
+  </div>
+
+  <div class="gates">
+
+    <details class="gate" open>
+      <summary><span class="gate-index">שער ראשון</span><span class="gate-name">ללמוד את שפת החיים</span><span class="gate-chevron" aria-hidden="true">▾</span></summary>
+      <div class="gate-body">
+        <div class="session">
+          <h4>מפגש 1 · מהו טיפול תודעתי</h4>
+          <p>היכרות עם חכמת הרגע כשפה טיפולית. ההבדל בין טיפול בגוף, ברגש, בנפש ובתודעה. זיהוי המקום שבו האדם אינו זקוק לעוד פתרון, אלא לשינוי בנקודת המבט שממנה הוא פוגש את המציאות.</p>
+          <p>במפגש תיבנה ההבחנה בין תוכן הבעיה לבין התודעה שמחזיקה אותה. המשתתפות ילמדו לשאול לא רק מה קרה, אלא מאיזו נקודה האדם קורא את מה שקרה.</p>
+        </div>
+        <div class="session">
+          <h4>מפגש 2 · שפה יוצרת תודעה</h4>
+          <p>מילים אינן רק מתארות מציאות, הן מארגנות אותה. נלמד לזהות את המילים שבתוכן האדם כלוא, לפרק מושגים, להשיב למילה את ריבוי המשמעויות שלה וליצור באמצעות השפה אפשרות חדשה.</p>
+          <p>המשתתפות יתרגלו מעבר ממילים סוגרות למילים פותחות, מבלי לייפות את המציאות ומבלי להציע פרשנות שאינה שייכת למטופל.</p>
+        </div>
+        <div class="session">
+          <h4>מפגש 3 · הרגע כמערכת הפעלה</h4>
+          <p>היכרות עם שאלת היסוד: מה חי עכשיו. ההבדל בין מה שאני רוצה, מה שאני צריך, מה שמתחשק לי ומה שחי במפגש שביני לבין המציאות.</p>
+          <p>נלמד כיצד לזהות תנועה חיה, כיצד להבחין בינה לבין דחף, בריחה, פחד או ריצוי, וכיצד להישאר בתוך השאלה בלי למהר לענות במקומו של האדם.</p>
+        </div>
+        <div class="session">
+          <h4>מפגש 4 · שלושת הצירים ונקודת הבריאה</h4>
+          <p>ציר הזמן, ציר העת וציר הכנפיים. הזמן מתאר את הדרך, העת מזהה את השער שנפתח עכשיו, והכנפיים מבטאות את היכולת להתרחב מעבר לסיפור המצומצם.</p>
+          <p>נלמד למפות היכן האדם נמצא בכל אחד מן הצירים, מה קורה כאשר ציר אחד משתלט, וכיצד נקודת המפגש ביניהם יוצרת מרחב חדש של בחירה.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="gate">
+      <summary><span class="gate-index">שער שני</span><span class="gate-name">אבחון תודעתי</span><span class="gate-chevron" aria-hidden="true">▾</span></summary>
+      <div class="gate-body">
+        <div class="session">
+          <h4>מפגש 5 · ציר הזמן</h4>
+          <p>עבודה עם עבר, הווה ועתיד. זיהוי מצבים שבהם האדם נמשך לאחור, מנסה להקדים את העתיד או אינו מסכים לעבור דרך התהליך הנוכחי.</p>
+          <p>נלמד להבחין בין תהליך שמבקש זמן לבין היתקעות בתוך סיפור, ובין סבלנות חיה לבין דחייה והימנעות.</p>
+        </div>
+        <div class="session">
+          <h4>מפגש 6 · ציר העת</h4>
+          <p>לכל דבר יש עת. נלמד לזהות שערים פתוחים וסגורים, המתנה, הבשלה, החמצה וקפיצה. נעמיק בהבדל שבין פעולה בזמן הנכון לבין מאמץ שמנסה לדחוק את המציאות.</p>
+          <p>המשתתפות יתרגלו בירור של מצבים שבהם האדם יודע מה הוא רוצה, אך אינו יודע אם זה הזמן לפעול, להמתין, לסגור או לעבור הלאה.</p>
+        </div>
+        <div class="session">
+          <h4>מפגש 7 · ציר הכנפיים</h4>
+          <p>עבודה עם עומק, מרחב, רוח ומשמעות. זיהוי מצבים שבהם האדם אחוז בפרטים עד שאינו רואה את התמונה הרחבה, או להפך, נשאר ברוח ובמשמעות בלי לפגוש את המציאות.</p>
+          <p>נלמד כיצד לאפשר לאדם להתרומם מעל הסיפור בלי להתנתק ממנו, וכיצד לשוב אל הקרקע עם אפשרות חדשה.</p>
+        </div>
+        <div class="session">
+          <h4>מפגש 8 · מפת התקיעות</h4>
+          <p>חיבור שלושת הצירים למודל אבחוני. מה קורה כאשר אדם חי רק בציר הזמן, רק בעת או רק בכנפיים. מה קורה בכל ציר כשהוא מחובר לציר אחד נוסף אך מנותק מן השלישי.</p>
+          <p>המשתתפות ילמדו לבנות מפת תקיעות ראשונית ולזהות מהו שער הכניסה המתאים לעבודה בכל מקרה.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="gate">
+      <summary><span class="gate-index">שער שלישי</span><span class="gate-name">תנועה וריפוי</span><span class="gate-chevron" aria-hidden="true">▾</span></summary>
+      <div class="gate-body">
+        <div class="session">
+          <h4>מפגש 9 · גלות וגאולה</h4>
+          <p>גלות כמצב של ניתוק מן החיות, וגאולה כשיבה לחיבור. נלמד לעבוד עם המתח שבין אור לכלי, בין רצון גדול לבין יכולת ההחזקה שלו, ובין מה שמבקש להתגלות לבין המבנה שעדיין אינו מוכן לשאת אותו.</p>
+          <p>העבודה אינה מבקשת להוציא את האדם במהירות מן הכאב, אלא לזהות מה מבקש להיוולד מתוכו ומהו הכלי הדרוש כעת.</p>
+        </div>
+        <div class="session">
+          <h4>מפגש 10 · השאול ומרחב השאלה</h4>
+          <p>שאלה אינה רק דרך לקבל מידע. היא יכולה לפתוח מרחב שבו הידיעה הפנימית עולה. נלמד להבחין בין שאלה חוקרת, שאלה מכוונת, שאלה ביקורתית ושאלה שמאפשרת חיים.</p>
+          <p>נעסוק בשאלת למה, בבקשת פשר, בתשובה הנמצאת בגוף השאלה וביכולת להישאר רגע במקום שבו עדיין אין תשובה.</p>
+        </div>
+        <div class="session">
+          <h4>מפגש 11 · היזכרות ומימוש</h4>
+          <p>היזכרות אינה שליפת מידע מן העבר, אלא תנועה שבה דבר עולה כדי להתממש. נלמד להקשיב למחשבות חולפות, לרעיונות שחוזרים, לדברים שקופצים לתודעה ולמשימות שמבקשות להגיע אל העולם.</p>
+          <p>כלי מרכזי במפגש יהיה כתיבת רצף, לצד עבודה עם שכחה, עומס מחשבתי והאמון בכך שהדבר הנכון ישוב כאשר תגיע עתו.</p>
+        </div>
+        <div class="session">
+          <h4>מפגש 12 · אינטואיציה, גוף ומחזוריות</h4>
+          <p>האינטואיציה כידיעה בלתי אמצעית. נלמד להבחין בין קול פנימי, חרדה, זיכרון, הרגל ותחושת גוף. נעסוק בגוף כמקום שבו התודעה נעשית מוחשית ובמחזוריות כזרם של חיות משתנה.</p>
+          <p>המפגש ייתן למטפלות כלים להקשיב לשינויי קצב, לצורך בהתכנסות, לפעולה, למנוחה ולמעברים שבין שלבים.</p>
+        </div>
+        <div class="session">
+          <h4>מפגש 13 · כאב, בכי ופורקן</h4>
+          <p>נלמד להתייחס לכאב כתנועה שמבקשת מקום ולא רק כתופעה שצריך להפסיק. נבחין בין בכי שמאפשר מעבר לבין פורקן שחוזר על עצמו בלי ליצור תנועה.</p>
+          <p>נעסוק ביכולת לשאת אנרגיה בגוף, לתת לה צורה, מילה, תפילה או פעולה, מבלי להיבהל ממנה ומבלי למהר לפרש אותה.</p>
+        </div>
+        <div class="session">
+          <h4>מפגש 14 · הריפוי שברגע</h4>
+          <p>כיצד העבר ממשיך לחיות בהווה, וכיצד המפגש עם הרגע מאפשר לפגוש אותו אחרת. נעמיק בהבחנה בין האירוע שקרה לבין האופן שבו התודעה ממשיכה לארגן סביבו את החיים.</p>
+          <p>העבודה אינה מוחקת את העבר ואינה מבטיחה שלא יכאב. היא מבקשת למצוא את נקודת החיים שאינה פגומה, ומתוכה לאפשר לתגובה חדשה להיוולד.</p>
+        </div>
+      </div>
+    </details>
+
+    <details class="gate">
+      <summary><span class="gate-index">שער רביעי</span><span class="gate-name">החזקת מרחב טיפולי</span><span class="gate-chevron" aria-hidden="true">▾</span></summary>
+      <div class="gate-body">
+        <div class="session">
+          <h4>מפגש 15 · הנהג במכונית האוטונומית</h4>
+          <p>הגוף, הנפש והנשמה כמערכת שיודעת לנוע, והשכל כנהג שיכול להקשיב, לכוון או להשתלט. נלמד לזהות עודף שליטה, ניחוש, ניתוח ואחריות יתר, לצד מצבים של ויתור על אחריות והישענות על תחושות בלבד.</p>
+          <p>זהו מפגש על היחס בין אמון לבחירה. המטרה אינה לסלק את השכל מן המכונית, אלא להשיב לו את תפקידו הנכון.</p>
+        </div>
+        <div class="session">
+          <h4>מפגש 16 · מבנה מפגש, אתיקה ופרקטיקום</h4>
+          <p>בניית מפגש טיפולי מלא בחכמת הרגע. פתיחת המפגש, הקשבה לסיפור, זיהוי התודעה הפעילה, בחירת שער הכניסה, ניסוח שאלה, יצירת תנועה וסגירה.</p>
+          <p>נעסוק בגבולות המקצועיים של הטיפול התודעתי, במצבים המחייבים הפניה לטיפול רגשי, רפואי או פסיכיאטרי, ובהבדל בין ליווי, הוראה וטיפול. בחלק המעשי יוצגו מקרים, ייערכו תרגולים בזוגות וכל משתתפת תבנה מפת טיפול למקרה אחד.</p>
+        </div>
+      </div>
+    </details>
+
+  </div>
+</section>
+
+<section class="landing-outcomes" data-reveal>
+  <h2>תוצרי ההכשרה</h2>
+  <p class="lede">
+    בסיום ההכשרה המשתתפות יוכלו להקשיב לסיפור מעבר לתוכן הגלוי שלו, לזהות את נקודת התקיעות
+    התודעתית, למפות אותה באמצעות שלושת הצירים, לבחור שער מתאים לעבודה ולהוביל תהליך שמחזיר
+    את האדם לבהירות, לחיבור ולתנועה.
+  </p>
+  <p class="note">
+    כל מפגש כולל לימוד, הדגמה מתוך מקרה, תרגול קצר ועבודת התבוננות בין המפגשים. מן המפגש החמישי
+    מתחילה עבודה בזוגות, ובחלק האחרון משולבת הדרכה קבוצתית על מקרים מן השטח.
+  </p>
+</section>
+
+<section id="contact" class="landing-contact" data-reveal>
+  <h2>מוזמנות להצטרף להכשרה</h2>
+  <p>לפרטים נוספים, תאריכי פתיחה ותנאי הרשמה — אפשר לכתוב ישירות או להצטרף לקבוצת הוואטסאפ של חכמת הרגע.</p>
+  <div class="landing-contact-actions">
+    <a class="cta-gold" href="#">לפרטים והרשמה</a>
+    <a class="cta-outline" href="#" style="color:var(--cream);border-color:rgba(251,247,238,0.5)">להצטרפות לקבוצת הוואטסאפ</a>
+  </div>
+  <a class="landing-contact-email" href="mailto:atara30@gmail.com">atara30@gmail.com</a>
+</section>
+
+</main>
+
+<footer class="landing-footer">
+  <p>חכמת הרגע · עטרה גבריאלי — <a href="mailto:atara30@gmail.com">atara30@gmail.com</a></p>
+</footer>
+
+<script src="../../assets/js/reveal.js"></script>
+</body>
+</html>
