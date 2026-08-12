@@ -203,7 +203,7 @@
     if (routePage) routePage.remove();
 
     routePage = document.createElement("main");
-    routePage.className = "route-page route-concept-" + conceptNumber;
+    routePage.className = "route-page route-concept-2";
     routePage.setAttribute("data-step", routeStep(route));
     routePage.innerHTML =
       '<section class="route-hero"><div class="container">' +

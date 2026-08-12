@@ -187,6 +187,71 @@
     line-height: 1.55;
   }
 
+  /* תאריכי המפגשים */
+  .landing-dates {
+    padding: 90px 20px 100px;
+    background: var(--cream);
+  }
+
+  .dates-note {
+    max-width: 56ch;
+    margin: 0 auto 44px;
+    text-align: center;
+    font-size: 0.98rem;
+    color: var(--ink);
+    opacity: 0.72;
+    line-height: 1.7;
+  }
+
+  .dates-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    width: min(1000px, 94%);
+    margin-inline: auto;
+  }
+
+  .date-chip {
+    background: #fff;
+    border: 1px solid rgba(31, 62, 117, 0.14);
+    border-radius: 14px;
+    padding: 16px 14px;
+    text-align: center;
+    box-shadow: 0 10px 26px rgba(16, 30, 48, 0.05);
+  }
+
+  .date-chip .n {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 0.78rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+    margin-bottom: 6px;
+  }
+
+  .date-chip .g {
+    display: block;
+    font-size: 1.02rem;
+    color: var(--blue-royal);
+    font-weight: 600;
+  }
+
+  .date-chip .h {
+    display: block;
+    margin-top: 3px;
+    font-size: 0.82rem;
+    opacity: 0.65;
+  }
+
+  @media (max-width: 760px) {
+    .dates-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 480px) {
+    .dates-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .date-chip { padding: 12px 8px; }
+  }
+
   /* מבנה ההכשרה, שערים ומפגשים */
   .landing-structure {
     padding: 100px 20px 110px;
@@ -737,6 +802,32 @@
       <h3>גישה גם אחרי המפגש</h3>
       <p>כל מפגש מוקלט ועומד לרשות המשתתפות, כדי לאפשר חזרה על החומר, השלמת מפגש שהוחמץ ולמידה בקצב אישי.</p>
     </div>
+  </div>
+</section>
+
+<section class="landing-dates" data-reveal>
+  <div class="structure-head" style="margin-bottom:30px">
+    <p class="landing-kicker" style="color:var(--gold)">לוח זמנים</p>
+    <h2 style="color:var(--blue-royal);font-size:clamp(1.7rem, 3.6vw, 2.5rem)">16 מפגשים, ימי רביעי בבוקר 9:30-13:00</h2>
+  </div>
+  <p class="dates-note">המפגשים מתקיימים אחת לשבוע בימי רביעי, 9:30-13:00. השבוע של חנוכה מדולג, ובמקומו נוסף מפגש משלים בהמשך הרצף כדי לשמור על 16 מפגשים מלאים.</p>
+  <div class="dates-grid">
+    <div class="date-chip"><span class="n">מפגש 01</span><span class="g">14.10.2026</span><span class="h">ג׳ בחשוון</span></div>
+    <div class="date-chip"><span class="n">מפגש 02</span><span class="g">21.10.2026</span><span class="h">י׳ בחשוון</span></div>
+    <div class="date-chip"><span class="n">מפגש 03</span><span class="g">28.10.2026</span><span class="h">י״ז בחשוון</span></div>
+    <div class="date-chip"><span class="n">מפגש 04</span><span class="g">04.11.2026</span><span class="h">כ״ד בחשוון</span></div>
+    <div class="date-chip"><span class="n">מפגש 05</span><span class="g">11.11.2026</span><span class="h">א׳ בכסלו</span></div>
+    <div class="date-chip"><span class="n">מפגש 06</span><span class="g">18.11.2026</span><span class="h">ח׳ בכסלו</span></div>
+    <div class="date-chip"><span class="n">מפגש 07</span><span class="g">25.11.2026</span><span class="h">ט״ו בכסלו</span></div>
+    <div class="date-chip"><span class="n">מפגש 08</span><span class="g">02.12.2026</span><span class="h">כ״ב בכסלו</span></div>
+    <div class="date-chip"><span class="n">מפגש 09</span><span class="g">16.12.2026</span><span class="h">ו׳ בטבת</span></div>
+    <div class="date-chip"><span class="n">מפגש 10</span><span class="g">23.12.2026</span><span class="h">י״ג בטבת</span></div>
+    <div class="date-chip"><span class="n">מפגש 11</span><span class="g">30.12.2026</span><span class="h">כ׳ בטבת</span></div>
+    <div class="date-chip"><span class="n">מפגש 12</span><span class="g">06.01.2027</span><span class="h">כ״ז בטבת</span></div>
+    <div class="date-chip"><span class="n">מפגש 13</span><span class="g">13.01.2027</span><span class="h">ה׳ בשבט</span></div>
+    <div class="date-chip"><span class="n">מפגש 14</span><span class="g">20.01.2027</span><span class="h">י״ב בשבט</span></div>
+    <div class="date-chip"><span class="n">מפגש 15</span><span class="g">27.01.2027</span><span class="h">י״ט בשבט</span></div>
+    <div class="date-chip"><span class="n">מפגש 16</span><span class="g">03.02.2027</span><span class="h">כ״ו בשבט</span></div>
   </div>
 </section>
 
