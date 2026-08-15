@@ -1163,5 +1163,19 @@
 
 <script src="assets/js/reveal.js"></script>
 <script src="assets/js/fit-form.js"></script>
+<script>
+  (function () {
+    var gates = document.querySelectorAll(".gate");
+    gates.forEach(function (gate) {
+      gate.addEventListener("toggle", function () {
+        if (gate.open) {
+          gates.forEach(function (other) {
+            if (other !== gate) other.open = false;
+          });
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>
