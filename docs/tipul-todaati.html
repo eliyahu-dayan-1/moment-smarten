@@ -169,14 +169,53 @@
   }
 
   .date-chip {
-    background: #fff;
-    border: 1px solid rgba(31, 62, 117, 0.14);
+    background: none;
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    cursor: default;
+    height: 128px;
+    perspective: 1200px;
+  }
+
+  .date-chip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+
+  .date-chip:hover .date-chip-inner,
+  .date-chip:focus-within .date-chip-inner,
+  .date-chip:focus .date-chip-inner {
+    transform: rotateY(180deg);
+  }
+
+  .date-chip-face {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     border-radius: 14px;
     padding: 16px 14px;
-    text-align: center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     box-shadow: 0 10px 26px rgba(16, 30, 48, 0.05);
-    cursor: default;
-    transition: background 0.4s var(--ease), border-color 0.4s var(--ease), transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+  }
+
+  .date-chip-front {
+    background: #fff;
+    border: 1px solid rgba(31, 62, 117, 0.14);
+  }
+
+  .date-chip-back {
+    background: linear-gradient(150deg, var(--navy) 0%, #331634 100%);
+    border: 1px solid rgba(201, 168, 106, 0.4);
+    transform: rotateY(180deg);
   }
 
   .date-chip .n {
@@ -186,7 +225,6 @@
     color: var(--gold);
     letter-spacing: 0.1em;
     margin-bottom: 6px;
-    transition: color 0.4s var(--ease);
   }
 
   .date-chip .g {
@@ -194,7 +232,6 @@
     font-size: 1.02rem;
     color: var(--blue-royal);
     font-weight: 600;
-    transition: color 0.4s var(--ease);
   }
 
   .date-chip .h {
@@ -202,42 +239,13 @@
     margin-top: 3px;
     font-size: 0.82rem;
     opacity: 0.65;
-    transition: color 0.4s var(--ease);
   }
 
   .date-chip .topic {
     display: block;
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    margin-top: 0;
-    font-size: 0.78rem;
+    font-size: 0.82rem;
     color: var(--gold-light);
-    line-height: 1.4;
-    transition: max-height 0.4s var(--ease), opacity 0.35s var(--ease), margin-top 0.4s var(--ease);
-  }
-
-  .date-chip:hover,
-  .date-chip:focus-within {
-    background: linear-gradient(150deg, var(--navy) 0%, #331634 100%);
-    border-color: rgba(201, 168, 106, 0.4);
-    transform: translateY(-4px);
-    box-shadow: 0 16px 34px rgba(16, 30, 48, 0.22);
-  }
-
-  .date-chip:hover .n,
-  .date-chip:focus-within .n { color: var(--gold-light); }
-
-  .date-chip:hover .g,
-  .date-chip:focus-within .g,
-  .date-chip:hover .h,
-  .date-chip:focus-within .h { color: var(--cream); }
-
-  .date-chip:hover .topic,
-  .date-chip:focus-within .topic {
-    max-height: 60px;
-    opacity: 1;
-    margin-top: 8px;
+    line-height: 1.42;
   }
 
   @media (max-width: 760px) {
@@ -246,7 +254,8 @@
 
   @media (max-width: 480px) {
     .dates-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
-    .date-chip { padding: 12px 8px; }
+    .date-chip { height: 116px; }
+    .date-chip-face { padding: 12px 8px; }
   }
 
   /* מבנה ההכשרה, שערים ומפגשים */
@@ -895,22 +904,22 @@
   </div>
   <p class="dates-note">המפגשים מתקיימים אחת לשבוע בימי רביעי, 9:30-13:00. השבוע של חנוכה מדולג, ובמקומו נוסף מפגש משלים בהמשך הרצף כדי לשמור על 16 מפגשים מלאים.</p>
   <div class="dates-grid">
-    <div class="date-chip" data-reveal tabindex="0"><span class="n">מפגש 01</span><span class="g">14.10.2026</span><span class="h">ג׳ בחשוון</span><span class="topic">מה חסר לי בקליניקה?</span></div>
-    <div class="date-chip" data-reveal tabindex="0"><span class="n">מפגש 02</span><span class="g">21.10.2026</span><span class="h">י׳ בחשוון</span><span class="topic">לברוא עולם במילים</span></div>
-    <div class="date-chip" data-reveal tabindex="0"><span class="n">מפגש 03</span><span class="g">28.10.2026</span><span class="h">י״ז בחשוון</span><span class="topic">הרגע כמערכת הפעלה</span></div>
-    <div class="date-chip" data-reveal tabindex="0"><span class="n">מפגש 04</span><span class="g">04.11.2026</span><span class="h">כ״ד בחשוון</span><span class="topic">שלושת הצירים ונקודת הבריאה</span></div>
-    <div class="date-chip" data-reveal tabindex="0"><span class="n">מפגש 05</span><span class="g">11.11.2026</span><span class="h">א׳ בכסלו</span><span class="topic">איפה אני מסתתרת?</span></div>
-    <div class="date-chip" data-reveal tabindex="0"><span class="n">מפגש 06</span><span class="g">18.11.2026</span><span class="h">ח׳ בכסלו</span><span class="topic">מה אני רוצה, ומה החיים רוצים ממני?</span></div>
-    <div class="date-chip" data-reveal tabindex="0"><span class="n">מפגש 07</span><span class="g">25.11.2026</span><span class="h">ט״ו בכסלו</span><span class="topic">שמישהו ייקח ממני את המחשבות</span></div>
-    <div class="date-chip" data-reveal tabindex="0"><span class="n">מפגש 08</span><span class="g">02.12.2026</span><span class="h">כ״ב בכסלו</span><span class="topic">איך אני אשמע את האינטואיציה שלי?</span></div>
-    <div class="date-chip" data-reveal tabindex="0"><span class="n">מפגש 09</span><span class="g">16.12.2026</span><span class="h">ו׳ בטבת</span><span class="topic">למה אני לא מצליחה להחליט?</span></div>
-    <div class="date-chip" data-reveal tabindex="0"><span class="n">מפגש 10</span><span class="g">23.12.2026</span><span class="h">י״ג בטבת</span><span class="topic">למה אני לא מצליחה להתמקד בדבר אחד?</span></div>
-    <div class="date-chip" data-reveal tabindex="0"><span class="n">מפגש 11</span><span class="g">30.12.2026</span><span class="h">כ׳ בטבת</span><span class="topic">השאול ומרחב השאלה</span></div>
-    <div class="date-chip" data-reveal tabindex="0"><span class="n">מפגש 12</span><span class="g">06.01.2027</span><span class="h">כ״ז בטבת</span><span class="topic">זיכרונות, היזכרות, פלאשבקים וטראומות</span></div>
-    <div class="date-chip" data-reveal tabindex="0"><span class="n">מפגש 13</span><span class="g">13.01.2027</span><span class="h">ה׳ בשבט</span><span class="topic">למה אני בוכה מכל דבר?</span></div>
-    <div class="date-chip" data-reveal tabindex="0"><span class="n">מפגש 14</span><span class="g">20.01.2027</span><span class="h">י״ב בשבט</span><span class="topic">למה אני כל יום מרגישה אחרת?</span></div>
-    <div class="date-chip" data-reveal tabindex="0"><span class="n">מפגש 15</span><span class="g">27.01.2027</span><span class="h">י״ט בשבט</span><span class="topic">למה אני לא מצליחה להתמיד בשום דבר?</span></div>
-    <div class="date-chip" data-reveal tabindex="0"><span class="n">מפגש 16</span><span class="g">03.02.2027</span><span class="h">כ״ו בשבט</span><span class="topic">מן השפה אל חדר הטיפול</span></div>
+    <div class="date-chip" data-reveal tabindex="0"><div class="date-chip-inner"><div class="date-chip-face date-chip-front"><span class="n">מפגש 01</span><span class="g">14.10.2026</span><span class="h">ג׳ בחשוון</span></div><div class="date-chip-face date-chip-back"><span class="topic">מה חסר לי בקליניקה?</span></div></div></div>
+    <div class="date-chip" data-reveal tabindex="0"><div class="date-chip-inner"><div class="date-chip-face date-chip-front"><span class="n">מפגש 02</span><span class="g">21.10.2026</span><span class="h">י׳ בחשוון</span></div><div class="date-chip-face date-chip-back"><span class="topic">לברוא עולם במילים</span></div></div></div>
+    <div class="date-chip" data-reveal tabindex="0"><div class="date-chip-inner"><div class="date-chip-face date-chip-front"><span class="n">מפגש 03</span><span class="g">28.10.2026</span><span class="h">י״ז בחשוון</span></div><div class="date-chip-face date-chip-back"><span class="topic">הרגע כמערכת הפעלה</span></div></div></div>
+    <div class="date-chip" data-reveal tabindex="0"><div class="date-chip-inner"><div class="date-chip-face date-chip-front"><span class="n">מפגש 04</span><span class="g">04.11.2026</span><span class="h">כ״ד בחשוון</span></div><div class="date-chip-face date-chip-back"><span class="topic">שלושת הצירים ונקודת הבריאה</span></div></div></div>
+    <div class="date-chip" data-reveal tabindex="0"><div class="date-chip-inner"><div class="date-chip-face date-chip-front"><span class="n">מפגש 05</span><span class="g">11.11.2026</span><span class="h">א׳ בכסלו</span></div><div class="date-chip-face date-chip-back"><span class="topic">איפה אני מסתתרת?</span></div></div></div>
+    <div class="date-chip" data-reveal tabindex="0"><div class="date-chip-inner"><div class="date-chip-face date-chip-front"><span class="n">מפגש 06</span><span class="g">18.11.2026</span><span class="h">ח׳ בכסלו</span></div><div class="date-chip-face date-chip-back"><span class="topic">מה אני רוצה, ומה החיים רוצים ממני?</span></div></div></div>
+    <div class="date-chip" data-reveal tabindex="0"><div class="date-chip-inner"><div class="date-chip-face date-chip-front"><span class="n">מפגש 07</span><span class="g">25.11.2026</span><span class="h">ט״ו בכסלו</span></div><div class="date-chip-face date-chip-back"><span class="topic">שמישהו ייקח ממני את המחשבות</span></div></div></div>
+    <div class="date-chip" data-reveal tabindex="0"><div class="date-chip-inner"><div class="date-chip-face date-chip-front"><span class="n">מפגש 08</span><span class="g">02.12.2026</span><span class="h">כ״ב בכסלו</span></div><div class="date-chip-face date-chip-back"><span class="topic">איך אני אשמע את האינטואיציה שלי?</span></div></div></div>
+    <div class="date-chip" data-reveal tabindex="0"><div class="date-chip-inner"><div class="date-chip-face date-chip-front"><span class="n">מפגש 09</span><span class="g">16.12.2026</span><span class="h">ו׳ בטבת</span></div><div class="date-chip-face date-chip-back"><span class="topic">למה אני לא מצליחה להחליט?</span></div></div></div>
+    <div class="date-chip" data-reveal tabindex="0"><div class="date-chip-inner"><div class="date-chip-face date-chip-front"><span class="n">מפגש 10</span><span class="g">23.12.2026</span><span class="h">י״ג בטבת</span></div><div class="date-chip-face date-chip-back"><span class="topic">למה אני לא מצליחה להתמקד בדבר אחד?</span></div></div></div>
+    <div class="date-chip" data-reveal tabindex="0"><div class="date-chip-inner"><div class="date-chip-face date-chip-front"><span class="n">מפגש 11</span><span class="g">30.12.2026</span><span class="h">כ׳ בטבת</span></div><div class="date-chip-face date-chip-back"><span class="topic">השאול ומרחב השאלה</span></div></div></div>
+    <div class="date-chip" data-reveal tabindex="0"><div class="date-chip-inner"><div class="date-chip-face date-chip-front"><span class="n">מפגש 12</span><span class="g">06.01.2027</span><span class="h">כ״ז בטבת</span></div><div class="date-chip-face date-chip-back"><span class="topic">זיכרונות, היזכרות, פלאשבקים וטראומות</span></div></div></div>
+    <div class="date-chip" data-reveal tabindex="0"><div class="date-chip-inner"><div class="date-chip-face date-chip-front"><span class="n">מפגש 13</span><span class="g">13.01.2027</span><span class="h">ה׳ בשבט</span></div><div class="date-chip-face date-chip-back"><span class="topic">למה אני בוכה מכל דבר?</span></div></div></div>
+    <div class="date-chip" data-reveal tabindex="0"><div class="date-chip-inner"><div class="date-chip-face date-chip-front"><span class="n">מפגש 14</span><span class="g">20.01.2027</span><span class="h">י״ב בשבט</span></div><div class="date-chip-face date-chip-back"><span class="topic">למה אני כל יום מרגישה אחרת?</span></div></div></div>
+    <div class="date-chip" data-reveal tabindex="0"><div class="date-chip-inner"><div class="date-chip-face date-chip-front"><span class="n">מפגש 15</span><span class="g">27.01.2027</span><span class="h">י״ט בשבט</span></div><div class="date-chip-face date-chip-back"><span class="topic">למה אני לא מצליחה להתמיד בשום דבר?</span></div></div></div>
+    <div class="date-chip" data-reveal tabindex="0"><div class="date-chip-inner"><div class="date-chip-face date-chip-front"><span class="n">מפגש 16</span><span class="g">03.02.2027</span><span class="h">כ״ו בשבט</span></div><div class="date-chip-face date-chip-back"><span class="topic">מן השפה אל חדר הטיפול</span></div></div></div>
   </div>
 </section>
 
