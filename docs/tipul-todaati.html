@@ -547,7 +547,10 @@
 
   .bio-media {
     overflow: hidden;
-    border-radius: 50% 50% 20px 20px;
+    border-radius: 50%;
+    aspect-ratio: 1 / 1;
+    max-width: 380px;
+    margin-inline: auto;
     background: rgba(85, 121, 174, 0.14);
     border: 1px solid rgba(85, 121, 174, 0.25);
     box-shadow: 0 24px 60px rgba(16, 30, 48, 0.1);
@@ -557,8 +560,8 @@
     display: block;
     width: 100%;
     height: 100%;
-    min-height: 380px;
     object-fit: cover;
+    object-position: 50% 12%;
   }
 
   .bio-copy .landing-kicker { display: block; margin-bottom: 14px; color: var(--gold); }
@@ -581,7 +584,7 @@
 
   @media (max-width: 760px) {
     .bio-grid { grid-template-columns: 1fr; text-align: center; }
-    .bio-media img { min-height: 300px; }
+    .bio-media { max-width: 260px; }
   }
 
   /* איך זה מתקיים, פרונטלי + זום, סטריפ כהה כחול-סגול */
@@ -839,7 +842,7 @@
 <section class="bio-strip" data-reveal>
   <div class="bio-grid">
     <div class="bio-media">
-      <img src="assets/img/atara-navy-profile-smile.jpg" alt="עטרה גבריאלי">
+      <img src="assets/img/atara-portrait-circle.jpg" alt="עטרה גבריאלי">
     </div>
     <div class="bio-copy">
       <p class="landing-kicker">נעים מאד</p>
@@ -1165,16 +1168,84 @@
 <script src="assets/js/fit-form.js"></script>
 <script>
   (function () {
-    var gates = document.querySelectorAll(".gate");
-    gates.forEach(function (gate) {
-      gate.addEventListener("toggle", function () {
-        if (gate.open) {
-          gates.forEach(function (other) {
-            if (other !== gate) other.open = false;
-          });
-        }
+    // אנימציית פתיחה/סגירה חלקה לאלמנטי <details> (שערי הסילבוס ושאלות ותשובות),
+    // כי דפדפנים פותחים/סוגרים <details> באופן מיידי בלי אנימציה מובנית.
+    function AnimatedDetails(el, contentSelector, group) {
+      this.el = el;
+      this.summary = el.querySelector("summary");
+      this.content = el.querySelector(contentSelector);
+      this.group = group || null;
+      this.animation = null;
+      this.isClosing = false;
+      this.isExpanding = false;
+      this.summary.addEventListener("click", this.onClick.bind(this));
+    }
+
+    AnimatedDetails.prototype.onClick = function (e) {
+      e.preventDefault();
+      this.el.style.overflow = "hidden";
+      if (this.isClosing || !this.el.open) {
+        this.openDetails();
+      } else if (this.isExpanding || this.el.open) {
+        this.shrink();
+      }
+    };
+
+    AnimatedDetails.prototype.shrink = function () {
+      this.isClosing = true;
+      var startHeight = this.el.offsetHeight + "px";
+      var endHeight = this.summary.offsetHeight + "px";
+      if (this.animation) this.animation.cancel();
+      this.animation = this.el.animate(
+        { height: [startHeight, endHeight] },
+        { duration: 320, easing: "cubic-bezier(0.4, 0, 0.2, 1)" }
+      );
+      this.animation.onfinish = this.onAnimationFinish.bind(this, false);
+      this.animation.oncancel = function () { this.isClosing = false; }.bind(this);
+    };
+
+    AnimatedDetails.prototype.openDetails = function () {
+      if (this.group) {
+        this.group.forEach(function (other) {
+          if (other !== this && other.el.open) other.shrink();
+        }.bind(this));
+      }
+      this.el.style.height = this.el.offsetHeight + "px";
+      this.el.open = true;
+      window.requestAnimationFrame(this.expand.bind(this));
+    };
+
+    AnimatedDetails.prototype.expand = function () {
+      this.isExpanding = true;
+      var startHeight = this.el.offsetHeight + "px";
+      var endHeight = this.summary.offsetHeight + this.content.offsetHeight + "px";
+      if (this.animation) this.animation.cancel();
+      this.animation = this.el.animate(
+        { height: [startHeight, endHeight] },
+        { duration: 320, easing: "cubic-bezier(0.4, 0, 0.2, 1)" }
+      );
+      this.animation.onfinish = this.onAnimationFinish.bind(this, true);
+      this.animation.oncancel = function () { this.isExpanding = false; }.bind(this);
+    };
+
+    AnimatedDetails.prototype.onAnimationFinish = function (open) {
+      this.el.open = open;
+      this.animation = null;
+      this.isClosing = false;
+      this.isExpanding = false;
+      this.el.style.height = "";
+      this.el.style.overflow = "";
+    };
+
+    function initGroup(detailsSelector, contentSelector, exclusive) {
+      var group = [];
+      document.querySelectorAll(detailsSelector).forEach(function (el) {
+        group.push(new AnimatedDetails(el, contentSelector, exclusive ? group : null));
       });
-    });
+    }
+
+    initGroup(".gate", ".gate-body", true);
+    initGroup(".qa", ".qa-body", false);
   })();
 </script>
 </body>
