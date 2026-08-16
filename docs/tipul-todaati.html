@@ -519,6 +519,21 @@
     text-align: center;
   }
 
+  .fit-form .form-status {
+    margin-top: 14px;
+    font-size: 0.9rem;
+    text-align: center;
+    min-height: 1.2em;
+  }
+
+  .fit-form .form-status-success {
+    color: #8fe0a8;
+  }
+
+  .fit-form .form-status-error {
+    color: #f0a8a8;
+  }
+
   @media (max-width: 560px) {
     .fit-form .form-row {
       grid-template-columns: 1fr;
@@ -1141,6 +1156,8 @@
   </div>
 
   <form class="fit-form" id="fitForm">
+    <input type="hidden" name="access_key" value="087602d3-9f20-4a17-b6f5-18aec27346a0">
+    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
     <h3>בואי לשיחת התאמה</h3>
     <div class="form-row">
       <div class="form-field">
@@ -1171,6 +1188,7 @@
       <textarea id="fitMotivation" name="motivation"></textarea>
     </div>
     <button type="submit" class="form-submit">לשליחת הפרטים לשיחת התאמה</button>
+    <p class="form-status" id="fitFormStatus" role="status" aria-live="polite"></p>
   </form>
 
   <a class="landing-contact-email" href="mailto:atara30@gmail.com">atara30@gmail.com</a>
