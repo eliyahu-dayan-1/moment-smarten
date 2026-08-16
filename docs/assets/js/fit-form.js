@@ -4,9 +4,12 @@
 
   var status = document.getElementById("fitFormStatus");
   var submitBtn = form.querySelector(".form-submit");
+  var WEBHOOK_URL = "https://hook.eu1.make.com/ylvc14luv7r8rgjx1vpvf4o3m3wte9h9";
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
+
+    if (form.botcheck.checked) return;
 
     if (status) {
       status.textContent = "שולח...";
@@ -14,22 +17,18 @@
     }
     if (submitBtn) submitBtn.disabled = true;
 
-    fetch("https://api.web3forms.com/submit", {
+    fetch(WEBHOOK_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(Object.fromEntries(new FormData(form)))
     })
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
-        if (data.success) {
-          if (status) {
-            status.textContent = "הפרטים נשלחו בהצלחה! נחזור אלייך בקרוב.";
-            status.className = "form-status form-status-success";
-          }
-          form.reset();
-        } else {
-          throw new Error(data.message || "שגיאה בשליחה");
+      .then(function (res) {
+        if (!res.ok) throw new Error("שגיאה בשליחה");
+        if (status) {
+          status.textContent = "הפרטים נשלחו בהצלחה! נחזור אלייך בקרוב.";
+          status.className = "form-status form-status-success";
         }
+        form.reset();
       })
       .catch(function () {
         if (status) {
